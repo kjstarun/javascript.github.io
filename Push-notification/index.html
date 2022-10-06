@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Notification</title>
+    <style>
+        *{
+            margin: 0;
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+            font-size: large;
+        }
+        .viewport{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+        .parent-container, h5{
+            color: #fff;
+        }
+        h5{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h5>Enter any input and hit submit and the browser will send you a push notification</h5>
+    <div class="viewport">
+        <div class="parent-container">
+            <label for="u_name">Username</label>
+            <input type="text" id="username" name="u_name" style="background-color: #fff;">
+
+            <input type="button" value="SUBMIT" onclick="notifyme()" style="background-color: #fff;">
+        </div>
+    </div>
+
+    <script>
+        function notifyme(){
+            var n = document.getElementById("username").value;
+
+            if (!("Notification" in window)){
+                alert("This browser does not support notification");
+            }
+            else if (Notification.permission === "granted") {
+                const notification = new Notification(n);
+            }
+            else if (Notification.permission !== "denied") {
+                Notification.requestPermission().then((permission) => {
+                    if (permission === "granted"){
+                        const notification = new Notification(n);
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

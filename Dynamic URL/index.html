@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <select id="sourceCity">
+      <option>Select source point</option>
+      <option value="1">Mumbai</option>
+      <option value="2">Delhi</option>
+      <option value="3">Indore</option>
+    </select>
+    <select id="destinationCity">
+      <option>Select destination point</option>
+      <option value="1">Mumbai</option>
+      <option value="2">Delhi</option>
+      <option value="3">Indore</option>
+    </select>
+    <input type="date" id="travelDate" />
+    <button onclick="handleBusSearch()">Search</button>
+  </div>
+  <script>
+    function handleBusSearch() {
+      const sourceCityElem = document.getElementById("sourceCity");
+      const destinationCityElem = document.getElementById("destinationCity");
+      const travelDateElem = document.getElementById("travelDate");
+
+      const sourceCityValue = sourceCityElem.value;
+      const sourceCityText =
+        sourceCityElem.options[sourceCityElem.selectedIndex].innerText;
+
+      const destinationCityValue = destinationCityElem.value;
+      const destinationCityText =
+        destinationCityElem.options[destinationCityElem.selectedIndex].innerText;
+
+      const travelDateValue = travelDateElem.value;
+      /* console.log("@TS Source: ", sourceCityValue, sourceCityText);
+      console.log("@TS Destination: ", destinationCityValue, destinationCityText);
+      console.log("@TS travelDateValue: ", travelDateValue); */
+
+      const busSearchURL = `./search.html?fromCityName=${sourceCityText}&fromCityId=${sourceCityValue}&destinationCityName=${destinationCityText}&destinationCityId=${destinationCityValue}&onwards=${travelDateValue}`;
+      console.log("@TS busSearchURL: ", busSearchURL);
+
+      window.location = busSearchURL;
+    }
+  </script>
+</body>
+
+</html>

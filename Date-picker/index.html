@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" id="flightDate" onchange="handleDateSelection(event)" />
+
+    <script>
+        const flightDateElem = document.getElementById("flightDate");
+
+        /**
+         * Step 1- Get the selected date
+         * Step 2 - Convert the selected date into unix timestamp
+         * Step 3 - Get the today date in unix timestamp;
+         * Step 4 - Compare the date & see if the selected date is smaller than the today's date
+         * Step 4.1 - If true, show error & reset the date
+         */
+
+        function handleDateSelection(e) {
+            const selectedDate = e.target.value;
+
+            // Getting the selected date timestamp
+            const selectedDateTimeStamp = getTimeFromDate(selectedDate);
+
+            const todaysDate = getTodayDate();
+
+            const todayDateTimeStamp = getTimeFromDate(todaysDate);
+
+            if (selectedDateTimeStamp < todayDateTimeStamp) {
+                alert("Select a possible date");
+                flightDateElem.value = "" + todaysDate;
+                return;
+            }
+        }
+
+        function getTimeFromDate(todaysDate) {
+            const result = new Date(todaysDate).getTime();
+            return result;
+        }
+
+        function getTodayDate() {
+            const todayDate = new Date();
+            const numbers = todayDate.getMonth() < 9 ? "0" : "";
+            const result = `${todayDate.getFullYear()}-${numbers}${todayDate.getMonth() + 1
+                }-${todayDate.getDate()}`;
+
+            return result;
+        }
+    </script>
+
+</body>
+
+</html>
