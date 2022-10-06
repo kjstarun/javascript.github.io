@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logical</title>
+</head>
+
+<body>
+    <script>
+        const a = 5 && 0;
+        const b = 0 || 0 || false || null || 0;
+        const c = -7 || 0;
+        const e = 10 && null && 10 && 7;
+        const f = 0 && 2;
+        const g = 0 || 0 || false || null || 0 || 56;
+        console.log({ a, b, c, e, f, g });
+
+        // using logical operators in function
+
+        function datafalse() {
+            return;
+        }
+
+        const dataf = datafalse() || "Not Applicable";
+        console.log("@TS data: ", dataf);
+
+        function datatrue() {
+            return true;
+        }
+
+        const datat = datatrue() || "Not Applicale";
+        console.log("@TS data: ", datat);
+    </script>
+</body>
+
+</html>
