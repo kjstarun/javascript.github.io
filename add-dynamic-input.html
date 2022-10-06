@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #chat-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .card {
+        border: 1px solid silver;
+        padding: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat-list"></div>
+    <button onclick="addNewUser()">Add user</button>
+  </body>
+</html>
+<script>
+  const peoples = [
+    {
+      name: "Vidhya Skill School",
+      avatar: "V",
+      type: "Meeting Host",
+    },
+    {
+      name: "Vidhya Skill School",
+      avatar: "V",
+      type: "Your Presentation",
+    },
+    {
+      name: "Tarun Sivagnanam",
+      avatar: "A",
+      type: "",
+    },
+  ];
+
+  const chatListContainer = document.getElementById("chat-list");
+  for (let i = 0; i < peoples.length; i++) {
+    addNewUser(peoples[i].name, peoples[i].type);
+  }
+
+  function addNewUser(name = "Guest", type = "") {
+    console.log("@TS name:  ", name);
+    console.log("@TS type:  ", type);
+    const currentElem = document.createElement("div");
+    currentElem.className = "card";
+
+    const nameElem = document.createElement("p");
+    nameElem.innerText = name;
+
+    const typeElem = document.createElement("p");
+    typeElem.innerText = type;
+
+    const removeBtn = document.createElement("button");
+    removeBtn.innerText = "X";
+    removeBtn.addEventListener("click", () => {
+      currentElem.remove();
+      return;
+    });
+
+    currentElem.appendChild(nameElem);
+    currentElem.appendChild(typeElem);
+    currentElem.appendChild(removeBtn);
+
+    chatListContainer.appendChild(currentElem);
+  }
+</script>
