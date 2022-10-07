@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD OBJECTS</title>
+</head>
+<body>
+    <script>
+
+        // CRUD Operations
+        // C- Create, R- Read, U- Update, D-Delete
+
+        // creating
+        const obj1 = {};
+        const obj2 = {
+            name: "Tarun",
+            age: 20,
+        };
+
+        console.log("@TS obj1,",obj1);
+        console.log("@TS obj2,",obj2);
+
+        // reading
+
+        console.log("@TS obj2 name,",obj2.name);
+        console.log("@TS obj2 age,",obj2.age);
+
+        // updating
+
+        obj2.name = "Arun";
+        obj2.age = 21;
+
+        console.log("@TS obj2 updated name,",obj2.name);
+        console.log("@TS obj2 updated age,",obj2.age);
+
+        // deleting
+
+        delete obj2.name;
+        console.log("@TS obj2 deleted name,",obj2);
+
+        delete obj2.age;
+        console.log("@TS obj2 deleted age,",obj2);
+
+    </script>
+</body>
+</html>
