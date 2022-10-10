@@ -20,9 +20,15 @@
         let h = 56;
         let i = 2.56;
         let j = -23;
-
+        let k = null;
+        let l ={
+                name:"Tarun",
+                Age:"21",
+                Bank_balance:"2000"
+        };
+        let m = undefined;
         function maximum(arr) {
-            if (typeof (arr) === 'object' && arr === 'null') {
+            if (Array.isArray(arr)) {
                 let temp = 0;
                 for (let i = 0; i < arr.length; i++) {
                     if (arr[i] > temp) {
@@ -64,6 +70,13 @@
         console.log("@TS Maximum of invalid values array", maximum(j));
 
         console.log("@TS Maximum of null array", maximum(k));
+
+        console.log("@TS Maximum of an object", maximum(l));
+
+        console.log("@TS Maximum of an undefined value", maximum(m));
+
+
+
 
     </script>
 </body>
