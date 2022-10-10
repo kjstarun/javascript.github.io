@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // array methods
+
+        // search an element in array
+
+        const arr = ['h', 'e', 'l', 'l', 'o'];
+
+        // first element
+        console.log("@TS first element",arr[0]);  // "h"
+
+        // second element
+        console.log("@TS second element",arr[1]); // "e"
+
+        // add an element to array
+
+        // push - adds at end of array
+
+        arr.push("push");
+
+        console.log("@TS Push", arr);
+
+        // unshift - adds at start of an array
+
+        arr.unshift("unshift");
+
+        console.log("@TS unshift", arr);
+
+        // update an element in array.
+
+        arr[3] = "updated element."
+
+        console.log("@TS updated array", arr);
+
+        // delete an element
+
+        // pop - removes the last element and it can return the value.
+
+        p = arr.pop();
+
+        console.log("@TS deleted last elem from arr",arr);
+        console.log("@TS deleted elem from arr is",p);
+
+        // shift - removes the first element and it can return the value.
+
+        s = arr.shift();
+
+        console.log("@TS deleted first elem from arr",arr);
+        console.log("@TS deleted elem from arr is",s);
+
+    </script>
+</body>
+
+</html>
