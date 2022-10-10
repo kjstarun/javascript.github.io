@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .count{
+            display: flex;
+            align-items: center;
+        }
+        button{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+
+<script>
+
+    const dataset = [
+        {
+            title: "Laptop",
+            count: 0,
+        },
+        {
+            title: "Monitor",
+            count: 0,
+        },
+    ];
+    for (const i of dataset) {
+
+        const parentListContainer = document.getElementById("container");
+
+        const parentContainer = document.createElement("div");
+        parentContainer.className = "parent-container";
+
+        const titleContainer = document.createElement("p");
+        titleContainer.className = "title";
+        titleContainer.textContent = i.title;
+
+        const plusBtn = document.createElement("button");
+        plusBtn.className = "plusBtn";
+        plusBtn.textContent = "Add One Item";
+        plusBtn.addEventListener("click", addCount);
+
+        const minusBtn = document.createElement("button");
+        minusBtn.className = "minusBtn";
+        minusBtn.textContent = "Remove One Item";
+        minusBtn.addEventListener("click", minusCount);
+
+        const countContainer = document.createElement("h4");
+        countContainer.className = "count";
+        countContainer.textContent = "Count: "
+
+        const countDisplay = document.createElement("h4");
+        countDisplay.className = "countdisplay"
+        countDisplay.textContent = i.count;
+
+        parentContainer.appendChild(titleContainer);
+        countContainer.appendChild(countDisplay);
+        parentContainer.appendChild(countContainer);
+        parentContainer.appendChild(plusBtn);
+        parentContainer.appendChild(minusBtn);
+        parentListContainer.appendChild(parentContainer);
+
+        function addCount(){
+            i.count++ ;
+            countDisplay.textContent = i.count;
+        }
+
+        function minusCount(){
+            if (i.count > 0) {
+                i.count-- ;
+                countDisplay.textContent = i.count;
+            }  
+        }
+    } 
+</script>
+</html>

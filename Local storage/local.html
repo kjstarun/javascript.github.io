@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="text" placeholder="Enter your name" id="name" onkeyup="handleInputMessage(event)" />
+    </div>
+
+    <script>
+
+        const messageElem = document.getElementById("name");
+
+        // Case 1 - Handle on first load
+        const message = localStorage.getItem("meriKey");
+        if (message !== null) {
+            // Update the input
+            messageElem.value = message;
+        }
+
+        // Case 2 - Update data in local storage
+        function handleInputMessage(e) {
+            console.log(e.target.value);
+            localStorage.setItem("Name", e.target.value);
+        }
+
+
+
+        // const saveData = (item) => {
+        //     let existingData = JSON.parse(localStorage.getItem("list"));
+
+        //     if (existingData) {
+        //         existingData.push(item);
+        //     } else {
+        //         existingData = [item];
+        //     }
+
+        //     localStorage.setItem("list", JSON.stringify(existingData));
+        // };
+
+        // const getData = () => {
+        //     let existingData = JSON.parse(localStorage.getItem("list"));
+        //     console.log("@AJ existingData: ", existingData);
+        // };
+    </script>
+</body>
+
+</html>
