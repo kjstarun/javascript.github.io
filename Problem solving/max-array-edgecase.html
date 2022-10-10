@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = [1, 2, 3, 1, 90, 42, 5, 3, 65];
+        let b = [];
+        let c = [1, 0, -2, 89, 0, 8, -90, 100];
+        let d = [1.5, -1.9, 9, 100.90];
+        let e = [false, true, NaN, 100, -1]
+        let f = "Hello";
+        let g = false;
+        let h = 56;
+        let i = 2.56;
+        let j = -23;
+
+        function maximum(arr) {
+            if (typeof (arr) === 'object') {
+                let temp = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] > temp) {
+                        temp = arr[i];
+                    }
+                }
+
+                return temp;
+            }
+            else {
+                // console.log(typeof(arr));
+                // alert("Please enter a valid array");
+                return "Please enter a valid input";
+                // break;
+            }
+
+        }
+
+
+
+        console.log("@TS Maximum", maximum(a));
+
+        console.log("@TS Maximum of empty array", maximum(b));
+
+        console.log("@TS Maximum of negative values array", maximum(c));
+
+        console.log("@TS Maximum of decimal values array", maximum(d));
+
+        console.log("@TS Maximum of boolean values array", maximum(e));
+
+        console.log("@TS Maximum of invalid values array", maximum(f));
+
+        console.log("@TS Maximum of invalid values array", maximum(g));
+
+        console.log("@TS Maximum of invalid values array", maximum(h));
+
+        console.log("@TS Maximum of invalid values array", maximum(i));
+
+        console.log("@TS Maximum of invalid values array", maximum(j));
+
+
+    </script>
+</body>
+
+</html>
