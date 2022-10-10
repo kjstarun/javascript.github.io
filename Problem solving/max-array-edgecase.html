@@ -22,7 +22,7 @@
         let j = -23;
 
         function maximum(arr) {
-            if (typeof (arr) === 'object') {
+            if (typeof (arr) === 'object' && arr === 'null') {
                 let temp = 0;
                 for (let i = 0; i < arr.length; i++) {
                     if (arr[i] > temp) {
@@ -63,6 +63,7 @@
 
         console.log("@TS Maximum of invalid values array", maximum(j));
 
+        console.log("@TS Maximum of null array", maximum(k));
 
     </script>
 </body>
