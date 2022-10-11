@@ -34,6 +34,9 @@
             if (val === null || val === undefined) {
                 return TypeError ("The input is not valid");
             }
+            else if(Array.isArray(val)){
+                return "Array";
+            }
             else {
                 return typeof (val);
             }
