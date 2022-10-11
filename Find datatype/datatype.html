@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>FIND DATATYPE</h1>
+    <script>
+        let a = [1, 2, 3, 1, 90, 42, 5, 3, 65];
+        let b = [];
+        let c = [1, 0, -2, 89, 0, 8, -90, 100];
+        let d = [1.5, -1.9, 9, 100.90];
+        let e = [false, true, NaN, 100, -1]
+        let f = "Hello";
+        let g = false;
+        let h = 56;
+        let i = 2.56;
+        let j = -23;
+        let k = null;
+        let l = {
+            name: "Tarun",
+            Age: "21",
+            Bank_balance: "2000"
+        };
+        let m = undefined;
+
+        function datatype(val) {
+            if (val === null || val === undefined) {
+                return TypeError ("The input is not valid");
+            }
+            else {
+                return typeof (val);
+            }
+        }
+
+        console.log("@TS datatype of array is,", datatype(a));
+
+        console.log("@TS datatype of empty array is,", datatype(b));
+
+        console.log("@TS datatype of negative values array is,", datatype(c));
+
+        console.log("@TS datatype of decimal values array is,", datatype(d));
+
+        console.log("@TS datatype of boolean values array is,", datatype(e));
+
+        console.log("@TS datatype of string is,", datatype(f));
+
+        console.log("@TS datatype of boolean value is,", datatype(g));
+
+        console.log("@TS datatype of positive number is,", datatype(h));
+
+        console.log("@TS datatype of decimal number is,", datatype(i));
+
+        console.log("@TS datatype of negative number is,", datatype(j));
+
+        console.log("@TS datatype of null is,", datatype(k));
+
+        console.log("@TS datatype of an object is,", datatype(l));
+
+        console.log("@TS datatype of an undefined is,", datatype(m));
+
+
+    </script>
+</body>
+
+</html>
