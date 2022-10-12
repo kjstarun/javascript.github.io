@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope in JS</title>
+</head>
+
+<body>
+    <h1>JAVASCRIPT SCOPE</h1>
+    <h4>Note: Please comment out the lines where it's not accessible or else the code will stop at the points showing error</h4>
+    <script>
+        console.log("Note: Please comment out the lines where it's not accessible or else the code will stop at the points showing error");
+        //Global scope
+
+        var a = 10;
+        let x = 20;
+        const y = 30;
+        function tryMe1() {
+            console.log("@TS Global Scope var variable is, ", a);
+            console.log("@TS Global Scope let variable is, ", x);
+            console.log("@TS Global Scope const variable is, ", y);
+        }
+        tryMe1(); //can access out of function
+        console.log(a); // can access out of function
+        console.log(x); // can access out of function
+        console.log(y); // can access out of function
+
+        // script scope
+
+        var v = 10;
+        let b = 20;
+        const c = 30;
+        function tryMe2() {
+            console.log("@TS Script Scope var variable is, ", v);
+            console.log("@TS Script Scope let variable is, ", b);
+            console.log("@TS Script Scope const variable is, ", c);
+        }
+        tryMe2();
+        console.log("@TS Script Scope var variable in global is, ", v); // can access global but scope in script
+        console.log("@TS Script Scope let variable in global is, ", b); // can access global but scope in script
+        console.log("@TS Script Scope const variable in global is, ", c); // can access global but scope in script
+
+        // block scope
+
+        {
+            var d = 40;
+            let e = 50;
+            const f = 60;
+        }
+
+        console.log("@TS block scope of var is, ",d); // can access global
+        console.log("@TS block scope of let is, ",e); // cannot access as it is block
+        console.log("@TS block scope of const is, ",f); // cannot access as it is block
+
+        //functional scope
+
+        function tryMe3() {
+            var i = 1;
+            let j = 2;
+            const k = 3;
+            l = 4; // accidental variable
+        }
+        tryMe3();
+        console.log("@TS function scope of var outside function is, ",i); // cannot access globally
+        console.log("@TS function scope of let outside function is, ",j);  // cannot access globally
+        console.log("@TS function scope of const outside function is, ",k); // cannot access globally
+        console.log("@TS function scope of accidental variable outside function is, ",l); // can access globally as it 
+       
+    </script>
+</body>
+
+</html>
