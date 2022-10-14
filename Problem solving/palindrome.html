@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>PALINDROME</h1>
+    <script>
+
+        // Version 1
+
+        let a = "malayalam";
+        let b = "avdvf";
+        let c = "";
+        let d = 598;
+        let e = [1, 2, 3];
+
+        function reverse(str) {
+            let newStr = "";
+            for (let i = a.length - 1; i >= 0; i--) {
+                newStr += str[i];
+            }
+            return newStr;
+        }
+
+        function palindrome(inputStr) {
+            if (!inputStr || typeof inputStr !== "string") {
+                return "Please enter a valid string";
+            }
+            else if (reverse(inputStr) === inputStr) {
+                return "It is a palindrome";
+            }
+            else {
+                return "It is not a palindrome";
+            }
+        }
+
+        console.log("@TS V1 input a string, ", palindrome(a));
+        console.log("@TS V1 input a string, ", palindrome(b));
+        console.log("@TS V1 input a number, ", palindrome(c));
+        console.log("@TS V1 input a number, ", palindrome(d));
+        console.log("@TS V1 input a array, ", palindrome(e));
+
+        // Version 2
+
+        let a2 = "malayalam";
+        let b2 = "avdvf";
+        let c2 = "";
+        let d2 = 598;
+        let e2 = [1, 2, 3];
+
+        function reverse2(str) {
+            let newStr = "";
+            for (let i = a.length - 1; i >= 0; i--) {
+                newStr += str[i];
+            }
+            return newStr;
+        }
+
+        function palindrome2(inputStr) {
+            return (!inputStr || typeof inputStr !== "string") ? "Please enter a valid string" :
+                (reverse2(inputStr) === inputStr) ? "It is a palindrome" : "It is not a palindrome";
+        }
+
+        console.log("@TS V2 input a string, ", palindrome2(a2));
+        console.log("@TS V2 input a string, ", palindrome2(b2));
+        console.log("@TS V2 input a number, ", palindrome2(c2));
+        console.log("@TS V2 input a number, ", palindrome2(d2));
+        console.log("@TS V2 input a array, ", palindrome2(e2));
+
+        // Version 3
+
+        let a3 = "malayalam";
+        let b3 = "avdvf";
+        let c3 = "";
+        let d3 = 598;
+        let e3 = [1, 2, 3];
+
+        function palindrome3(inputStr) {
+            if (!inputStr || typeof inputStr !== "string") {
+                return "Please enter a valid string";
+            }
+            let isPalindrome = true;
+            for (let i = 0, j = inputStr.length - 1; i < (inputStr.length % 2); i++, j--) {
+                if (inputStr[i] !== inputStr[j]) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+            return isPalindrome ? "It is a palindrome" : "It is not a palindrome"; 
+        }
+
+
+        console.log("@TS V3 input a string, ", palindrome3(a3));
+        console.log("@TS V3 input a string, ", palindrome3(b3));
+        console.log("@TS V3 input a number, ", palindrome3(c3));
+        console.log("@TS V3 input a number, ", palindrome3(d3));
+        console.log("@TS V3 input a array, ", palindrome3(e3));
+    </script>
+</body>
+
+</html>
