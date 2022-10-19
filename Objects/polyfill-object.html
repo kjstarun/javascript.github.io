@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+   /*      const MyCheck = {
+            age: 21,
+            name: "arun",
+            get(input) {
+                let arr = []
+                for (let keys in MyCheck) {
+                    // console.log(keys);
+                    arr.push(keys);
+                }
+                // console.log(arr);
+                for (let i of arr) {
+                    // console.log(i);
+                    if (i === input) {
+                        return true;
+                        break;
+                    }
+                    // return false;
+                }
+                return false;
+            }
+        };
+
+
+        let customObject = Object.create(MyCheck);
+        let check = customObject.get("name");
+        console.log(check); */
+
+        // Verion 2
+
+
+        const MyCheck2 = {
+            age: 21,
+            name: "arun",
+        };
+
+        const MyCheck3 = {
+            hi: 9,
+            hello: 0
+        }
+
+        Object.prototype.MyCheck22 = function (input) {
+            for (let i in this) {
+                    if (i === input){
+                        return true;
+                        break;
+                    }
+                    // else{
+                    //     return false
+                    // }
+                }
+                return false;
+            }
+
+        let customObject2 = Object.create(MyCheck2);
+        console.log("@TS", MyCheck2.MyCheck22("age"));
+        console.log("@TS", MyCheck3.MyCheck22("age"));
+
+
+        // Version 3
+
+        // if (!Object.prototype.hasOwnProperty) {
+        //     Object.prototype.hasOwnProperty = function (input) {
+        //         for (let i in Object) {
+        //             // console.log(keys);
+        //             if (i === input) {
+        //                 return true;
+        //                 break;
+        //             }
+        //         }
+        //         return false;
+        //     }
+        // }
+        
+        // let MyCheck3 = Object.create(null);
+        // MyCheck3.name = "tarun";
+        // MyCheck3.age = 21;
+        
+
+        // console.log("@TS V3", MyCheck3.hasOwnProperty("namkke"));
+
+
+
+
+        // const a = {
+        //     name: 21,
+        //     age: 09
+        // };
+
+        // for(let keys in a){
+        //     console.log(keys);
+        // }
+    </script>
+</body>
+
+</html>
