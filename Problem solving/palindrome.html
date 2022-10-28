@@ -28,16 +28,19 @@
             return newStr;
         }
 
+        // size
+            // 1 + n + 1
+        // time
+            // n + 1
+
         function palindrome(inputStr) {
             if (!inputStr || typeof inputStr !== "string") {
                 return "Please enter a valid string";
             }
-            else if (reverse(inputStr) === inputStr) {
+            if (reverse(inputStr) === inputStr) {
                 return "It is a palindrome";
-            }
-            else {
-                return "It is not a palindrome";
-            }
+            } 
+            return "It is not a palindrome";
         }
 
         console.log("@TS V1 input a string, ", palindrome(a));
@@ -64,7 +67,7 @@
 
         function palindrome2(inputStr) {
             return (!inputStr || typeof inputStr !== "string") ? "Please enter a valid string" :
-                (reverse2(inputStr) === inputStr) ? "It is a palindrome" : "It is not a palindrome";
+            (reverse2(inputStr) === inputStr) ? "It is a palindrome" : "It is not a palindrome";
         }
 
         console.log("@TS V2 input a string, ", palindrome2(a2));
@@ -85,16 +88,24 @@
             if (!inputStr || typeof inputStr !== "string") {
                 return "Please enter a valid string";
             }
-            let isPalindrome = true;
-            for (let i = 0, j = inputStr.length - 1; i < (inputStr.length % 2); i++, j--) {
+            // let isPalindrome = true;
+            let l = inputStr.length % 2;
+            // o n/2
+            for (let i = 0, j = inputStr.length - 1; i < l; i++, j--) {
                 if (inputStr[i] !== inputStr[j]) {
-                    isPalindrome = false;
-                    break;
+                    // isPalindrome = false;
+                    return "It is not palindrome";
+                    // break;
                 }
             }
-            return isPalindrome ? "It is a palindrome" : "It is not a palindrome"; 
+            return "It is a palindrome"; 
         }
+         
+        // Time  
+            // 1 + n/2 + 4
 
+        // Size
+            // 1 + 1 + 1
 
         console.log("@TS V3 input a string, ", palindrome3(a3));
         console.log("@TS V3 input a string, ", palindrome3(b3));

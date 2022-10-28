@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 5, 6, 1, 1];
+        const target = 8;
+        /* var r;
+
+        function sum(arr, target) {
+            let l = arr.length;
+            for (let i = 0; i < l; i++) {
+                for (let j = i; j < l - i; j++) {
+                    if (arr[i] + arr[j + 1] + arr[j + 2] === target) {
+                        console.log(arr[i], arr[j + 1], arr[j + 2]);
+                    }
+                }
+            }
+
+            // let obj = {};
+            // for (let i of arr) {
+            //     obj[i] = i;
+            // }
+
+            // for (let i = 0; i < l; i++) {
+            //     const value = arr[i];
+            //     // console.log(value);
+            //     const final = target - arr[i];
+            //     // console.log(final)
+            //     if (obj.hasOwnProperty(final)) {
+            //         const third = target - (final + value);
+            //         console.log(value, final);
+            //         // console.log(third);
+            //         if (obj.hasOwnProperty(third)) {
+            //             console.log(value,final,third);
+            //         }
+            //         return false;
+            //     }
+            // }
+
+
+
+        }
+ */
+
+        function sum(arr, n) {
+            arr.sort();
+            console.log(arr);
+            for (let i = 0; i < arr.length; i++) {
+                let j = i + 1;
+                let k = arr.length - 1;
+                while (j < k) {
+                    if (arr[i] + arr[j] + arr[k] < n) {
+                        j++;   
+                    }
+                    else if (arr[i] + arr[j] + arr[k] > n) {
+                        k--;
+                    }
+                    else {
+                        console.log(arr[i],arr[j],arr[k]);
+                        j++;
+                        k--;
+                    }
+                }
+                break;
+            }
+            return true;
+        }
+        // var arr = [-1, -4, -9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        sum(arr, target);
+    </script>
+</body>
+
+</html>

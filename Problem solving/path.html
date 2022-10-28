@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            a: {
+                c: [1,2,3],
+                b: {
+                    c: 12,
+                    j: false
+                },
+                k: null
+            }
+        };
+
+        /*   const findPath = (object, path) => {
+              let arr = path.split(".");
+              let objectV2;
+              let l = arr.length;
+              // console.log(arr)
+              function value(object, arr) {
+                  console.log("ts",object,arr)
+                  for (let i = 0; i < arr.length; i++) {
+                      if (object.hasOwnProperty(arr[i])) {
+                          objectV2 = object[arr[i]];
+                          console.log(objectV2);
+                          arr.shift()
+                          value(objectV2, arr);
+                          console.log(arr)
+                          // break;
+                      }
+                      // return undefined;
+                  }
+                  return objectV2;
+              }
+              value(object, arr);
+  
+              // function value(obj, path1) {
+              //     for (let i = 0; i < path.length; i++) {
+              //         if (object.hasOwnProperty(path1[i])) {
+              //             let obj1 = path1.arr[i];
+              //         }
+              //         else {
+              //             break;
+              //         }
+              //         return obj1;
+              //     }
+              // }
+              // for (let i = 0; i < arr.length; i++) {
+              //     if (object.hasOwnProperty(arr[i])) {
+              //         let obj1;
+              //         obj1  = value(obj1, arr.shift());
+              //     }
+              //     else {
+              //         break;
+              //     }
+              //     return obj1;
+              // }
+          }; */
+
+        const findPath = (object, path) => {
+            let arr = path.split('.');
+            let l = arr.length;
+            //    console.log(arr);
+            let obj_copy = { ...object };
+            for (let i = 0; i < l; i++) {
+                let key = arr[i];
+                // console.log(arr[i]);
+                // console.log(obj_copy);
+                if (obj_copy.hasOwnProperty(key)) {
+                    if (Array.isArray(obj_copy[arr[i]])) {
+                        return obj_copy[arr[i]];
+                    }
+                    if (typeof obj_copy[arr[i]] === "object" && obj_copy[arr[i]] !== null) {
+                        obj_copy = { ...obj_copy[key] };
+                        //  console.log(obj_copy);
+                        if (i === l - 1)
+                            return obj_copy;
+                    }
+                    else {
+                        // console.log(obj_copy[key]);
+                        if (i === l - 1)
+                            return obj_copy[key];
+                    }
+                }
+                else{
+                    return undefined;
+                }
+            }
+        };
+
+
+
+
+        console.log("@TS OP", findPath(obj, 'a.b.c')); // 12
+        console.log("@TS OP", findPath(obj, 'a.b')); // {c: 12, j: false}
+        console.log("@TS OP", findPath(obj, 'a.b.d')); // undefined
+        console.log("@TS OP", findPath(obj, 'a.c')); // undefined
+        console.log("@TS OP", findPath(obj, 'a.b.c.d')); // undefined
+        console.log("@TS OP", findPath(obj, 'a.b.c.d.e')); // undefined
+        console.log("@TS OP", findPath(obj, 'a.b.j')); //false
+        console.log("@TS OP", findPath(obj, 'a.b.j.k')); //undefined
+        console.log("@TS OP", findPath(obj, 'a.k')); //null
+        console.log("@TS OP", findPath(obj, 'a.c')); // array
+    </script>
+</body>
+
+</html>

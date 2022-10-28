@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const profile = {
+            fname: "Tarun",
+            lname: "Sivagnanam",
+            isActive: true,
+            address: {
+                country: "India",
+                state: "TN",
+                favMen: {
+                    actor: "Vijay",
+                    cricketMen: "Virat",
+                    favPlayers: {
+                        cricketTeam: "Dhoni",
+                        footBall: "Ronaldo",
+                    },
+                },
+            },
+        };
+        const checkKey = (obj, path) => {
+            if (obj.hasOwnProperty(path)) {
+                return true;
+            }
+            for (let i in obj) {
+                if (typeof obj[i] === "object") {
+                    // console.log("obj :", obj[i]);
+                    const result = checkKey(obj[i], path);
+                    if (result) {
+                        return true;
+                    }
+                    // console.log("Result :", result);
+                }
+            }
+            return false;
+        };
+        console.log(checkKey(profile, "footBall"));
+    </script>
+</body>
+
+</html>

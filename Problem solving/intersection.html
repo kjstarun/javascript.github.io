@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // const t0 = performance.now();
+        // doSomething();
+        // const t1 = performance.now();
+        // console.log(`Call to doSomething took ${t1 - t0} milliseconds.`);
+        const arr1 = [1, 4, 5, 2, 6, 7];
+        const arr2 = [1, 2, 9, 7, 8, 6];
+        const arr3 = [];
+
+        // Version 1
+
+        function intersection(arr1, arr2) {
+            for (let i = 0; i < arr1.length; i++) {
+                for (let j = 0; j < arr2.length; j++) {
+                    if (arr1[i] === arr2[j]) {
+                        arr3.push(arr1[i]);
+                    }
+                }
+            }
+            return arr3;
+        }
+
+        // // Version 2
+
+        function intersection(arr1, arr2) {
+            let i = 0;
+            while (i < arr1.length) {
+                for (let j = 0; j < arr2.length; j++) {
+                    if (arr1[i] === arr2[j]) {
+                        arr3.push(arr1[i]);
+                    }
+                }
+                i++;
+            }
+            return arr3;
+        }
+
+        // Version 3 
+
+        function intersection(arr1, arr2) {
+            for (let i = 0; i < arr1.length; i++) {
+                for (let j = 0; j < arr2.length; j++) {
+                    if (arr1[i] === arr2[j]) {
+                        arr3.push(arr1[i]);
+                        break;
+                    }
+                }
+            }
+            return arr3;
+        }
+
+        console.log("@TS", intersection(arr1, arr2));
+    </script>
+</body>
+
+</html>

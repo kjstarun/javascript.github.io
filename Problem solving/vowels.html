@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>VOWELS</h1>
+    <script>
+        // Write a program to find vowels
+        const str = "aAiIOutT";
+
+        // Case 1 - The input string is empty
+        // Case 2 - The input type !== string // Handle null, undefined or everything
+        // Case 3 - The input may contain lower & uppercase character
+
+        const findVowels = (inputStr) => {
+            if (!inputStr || typeof str !== "string") {
+                return "Please enter a valid string";
+            }
+
+            let a = 0;
+            let e = 0;
+            let i = 0;
+            let o = 0;
+            let u = 0;
+
+            for (let index = 0; index < inputStr.length; index++) {
+                // Get the current character
+                const currentChar = inputStr[index];
+
+                if (currentChar === "a") {
+                    a++;
+                } else if (currentChar === "e") {
+                    e++;
+                } else if (currentChar === "i") {
+                    i++;
+                } else if (currentChar === "o") {
+                    o++;
+                } else if (currentChar === "u") {
+                    u++;
+                }
+            }
+
+            return { a, e, i, o, u };
+        };
+
+        const findVowelsV2 = (inputStr) => {
+            if (!inputStr || typeof str !== "string") {
+                return "Please enter a valid string";
+            }
+
+            const results = {};
+
+            for (let index = 0; index < inputStr.length; index++) {
+                // Get the current character
+                const currentChar = inputStr[index];
+
+                if (currentChar === "a") {
+                    // First check if the object is already having the value
+                    // if yes then increment it to +1
+                    // Else initialise with 1
+
+                    if (results.hasOwnProperty(currentChar)) {
+                        results[currentChar]++;
+                    } else {
+                        results[currentChar] = 1;
+                    }
+                } else if (currentChar === "e") {
+                    if (results.hasOwnProperty(currentChar)) {
+                        results[currentChar]++;
+                    } else {
+                        results[currentChar] = 1;
+                    }
+                } else if (currentChar === "i") {
+                    if (results.hasOwnProperty(currentChar)) {
+                        results[currentChar]++;
+                    } else {
+                        results[currentChar] = 1;
+                    }
+                } else if (currentChar === "o") {
+                    if (results.hasOwnProperty(currentChar)) {
+                        results[currentChar]++;
+                    } else {
+                        results[currentChar] = 1;
+                    }
+                } else if (currentChar === "u") {
+                    if (results.hasOwnProperty(currentChar)) {
+                        results[currentChar]++;
+                    } else {
+                        results[currentChar] = 1;
+                    }
+                }
+            }
+
+            return results;
+        };
+
+        const findVowelsV3 = (inputStr) => {
+            if (!inputStr || typeof str !== "string") {
+                return "Please enter a valid string";
+            }
+
+            const results = {};
+            const vowels = { a: true, e: true, i: true, o: true, u: true };
+
+            for (let index = 0; index < inputStr.length; index++) {
+                // Get the current character
+                const currentChar = inputStr[index];
+
+                if (!vowels.hasOwnProperty(currentChar)) {
+                    continue;
+                }
+
+                if (results.hasOwnProperty(currentChar)) {
+                    results[currentChar]++;
+                } else {
+                    results[currentChar] = 1;
+                }
+            }
+
+            return results;
+        };
+
+        const findVowelsV4 = (inputStr) => {
+            if (!inputStr || typeof str !== "string") {
+                return "Please enter a valid string";
+            }
+
+            //const results = {};
+            const vowels = { a: 0, e: 0, i: 0, o: 0, u: 0 };
+            const l = inputStr.length;
+
+            for (let index = 0; index < l; index++) {
+                // Get the current character
+                const currentChar = inputStr[index];
+
+                if (vowels.hasOwnProperty(currentChar)) {
+                    vowels[currentChar]++;
+                }
+            }
+
+            return vowels;
+        };
+
+
+        console.log("@TS vowels version 1, ",findVowels("aqwsedrftygujnbvgfdiii"));
+        console.log("@TS vowels version 2, ",findVowelsV2("aqwsedrftygujnbvgfdiii"));
+        console.log("@TS vowels version 3, ",findVowelsV3("aqwsedrftygujnbvgfdiii"));
+        console.log("@TS vowels version 4, ",findVowelsV4("aqwsedrftygujnbvgfdiii"));
+    </script>
+</body>
+
+</html>
