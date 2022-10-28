@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+<script>
+    const myObj = {
+        foo: "bar",
+        getDetails: function () {
+            let self = this;
+
+            console.log("Outer", this.foo, self.foo);
+
+            (function () {
+                console.log("Inner", this.foo, self.foo);
+            })();
+        },
+    };
+
+    myObj.getDetails();
+
+    const jamesBond = {
+        firstName: "Daniel",
+        lastName: "Craig",
+        getFullName: () => {
+            return `${this.firstName} ${this.lastName}`;
+        },
+    };
+    jamesBond.getFullName();
+</script>

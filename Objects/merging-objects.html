@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: "Tarun",
+            age: 21,
+            state: "TN"
+        };
+
+        const obj2 = {
+            name: "Hareesh",
+            age: 21,
+            state: "TN",
+            details: { a: 1, b: 1 },
+        }
+
+        const obj3 = { ...obj, ...obj2 };
+        const obj4 = Object.assign({}, {obj,obj2});
+        obj3.isActive = true;
+        delete obj3.age;
+        delete obj3.details.b;
+
+        console.log("@TS v3", obj4);
+        console.log("@TS merging, ",{obj3, obj2, obj});
+
+        Object.defineProperty()
+    </script>
+</body>
+
+</html>
