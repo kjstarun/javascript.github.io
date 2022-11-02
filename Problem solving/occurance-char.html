@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = "Coimbatore coimb";
+        // const str = [1,2,3];
+        // Way 1
+        function occuranceV1(str) {
+            if (typeof (str) !== "string") {
+                return "Invalid input";
+            }
+            let new_str = str.toLowerCase();
+            let obj = {};
+            for (let i of new_str) {
+                if (i === " ") {
+                    continue;
+                }
+                if (obj.hasOwnProperty(i)) {
+                    obj[i]++;
+                }
+                else {
+                    obj[i] = 1;
+                }
+            }
+            return obj
+        }
+        console.log(occuranceV1(str));
+
+        // Way 2
+        function occuranceV2(str) {
+            if (typeof (str) !== "string") {
+                "Invalid input";
+            }
+            let new_str = str.toLowerCase();
+            let obj = {};
+            for (let i of new_str) {
+                if (i !== " ") {
+                    obj.hasOwnProperty(i) ? obj[i]++ : obj[i] = 1;
+                }
+            }
+            return obj
+        }
+        console.log(occuranceV2(str));
+
+        // Way 3
+        function occuranceV3(str) {
+            let arr = str.split(" ");
+            let result = arr.reduce((acc, curr) => {
+                for (let i of arr) {
+                    acc.hasOwnProperty(i) ? acc[i]++ : acc[i] = 1;
+                }
+            }, {})
+            return acc;
+        }
+        console.log(occuranceV3(str));
+    </script>
+</body>
+
+</html>

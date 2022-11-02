@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let employees = [
+            {
+                "id": 11,
+                "name": "Abhinav",
+                "salary": 75000
+            },
+            {
+                "id": 2131,
+                "name": "Raj",
+                "salary": 62000
+            },
+            {
+                "id": 3012,
+                "name": "Raj",
+                "salary": 32000
+            }]
+
+        // Way 1
+        function salary(employees) {
+            let result = [];
+            for (let item of employees) {
+                if (item.salary > 60000) {
+                    result.push(item);
+                }
+            }
+            return result;
+        }
+        salary(employees);
+
+        // way 2
+        function salary2(employees) {
+            let resultV2 = employees.filter((item) => {
+                if (item.salary > 60000) {
+                    return item;
+                }
+            })
+            return resultV2;
+        }
+        salary2(employees);
+
+        // way 3
+        function salary3(employees){
+            let resultV3 = employees.filter((item)=> item.salary > 60000);
+            return resultV3;
+        }
+        salary3(employees);
+    </script>
+</body>
+
+</html>

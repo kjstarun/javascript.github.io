@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = "Hello my name is Ankit Jain & i'm from Morena";
+        let arr = str.split(" ");
+        // console.log(arr);
+        // way 1
+        function long(arr) {
+            let result = arr[0];
+            for (let i of arr) {
+                if (i.length >= result.length) {
+                    result = i;
+                }
+            }
+            return result;
+        }
+        console.log("@TS way 1, ", long(arr));
+
+        // way 2 
+        function long2(arr) {
+            let temp = arr[0];
+            let result = arr.filter((item) => {
+                if (item.length > temp.length) {
+                    return item;
+                }
+            })
+            return result.toString();
+        }
+        console.log("@TS way 2, ", long2(arr));
+
+        // way 3
+        function long3(arr) {
+            let temp = arr[0];
+            let result = arr.filter((item) => item.length > temp.length);
+            return result.toString();
+        }
+        console.log("@TS way 3, ", long3(arr));
+
+        // way 4
+        function long4(str) {
+            let obj = {};
+            let max = 0;
+            let word = "";
+            for (let i of arr) {
+                if (obj.hasOwnProperty(i) === false) {
+                    obj[i] = i.length;
+                }
+            }
+            for (let i in obj) {
+                if (obj[i] > max) {
+                    word = i;
+                }
+            }
+            return word;
+        }
+        console.log("@TS way 4, ", long4(str));
+
+        //  way 5
+        function long5(str) {
+            let obj = {};
+            let max = 0;
+            let word = "";
+            for (let i of arr) {
+                if (obj.hasOwnProperty(i) === false) {
+                    obj[i.length] = i;
+                }
+            }
+            for (let i in obj) {
+                if (i > max) {
+                    word = obj[i];
+                }
+            }
+            return word;
+        }
+        console.log("@TS way 5, ", long5(arr));
+
+        // way 6
+        function long6(arr) {
+            let r = arr.reduce((item, curr) => {
+                // console.log(item,curr)
+                if (curr.length >= item.length) {
+                    return curr;
+                }
+                return item;
+            })
+            return r;
+            // console.log(r);
+        }
+        console.log("@TS way 6, ", long6(arr));
+
+        // way 7
+        function long7(str) {
+            let curr = 0;
+            let max = 0;
+            let str2 = "";
+            let len = str.length;
+            let maxStr = "";
+            for (let i = 0; i < len; i++) {
+                let char = str[i];
+                // console.log("@TS", i);
+                if (char === " ") {
+                    // console.log(i,char);
+                    if (max < curr) {
+                        max = curr;
+                        maxStr = str2;
+                    }
+                    curr = 0;
+                    str2 = "";
+                } else {
+                    curr++;
+                    str2 = str2 + char;
+                }
+            }
+            if (max < curr) {
+                max = curr;
+                maxStr = str2;
+            }
+
+            return maxStr;
+        }
+        console.log("@TS way 7, ", long7(str));
+    </script>
+</body>
+
+</html>

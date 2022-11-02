@@ -18,12 +18,13 @@
         let obj = {};
         for (let i of arr) {
             // (obj[i]) ? obj[i]++ : obj[i] = 1;
-            if (obj.hasOwnProperty(i)) {
-                obj[i]++;
-            }
-            else {
-                obj[i] = 1;
-            }
+            // if (obj.hasOwnProperty(i)) {
+            //     obj[i]++;
+            // }
+            // else {
+            //     obj[i] = 1;
+            // }
+            obj[arr[i]] = obj[arr[i]]++ || 1;
         }
         console.log(obj);
         for (let i in obj) {
