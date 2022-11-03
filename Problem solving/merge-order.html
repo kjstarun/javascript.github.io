@@ -76,7 +76,7 @@
             }
             return final;
         }
-        // console.log("@TS order1, ", orderV1(users, orders));
+        console.log("@TS order1, ", orderV1(users, orders));
 
         // Way 2 using object destructuring
         function orderV2(users, orders) {
@@ -97,7 +97,7 @@
             }
             return final;
         }
-        // console.log("@TS order2 , ", orderV2(users, orders));
+        console.log("@TS order2 , ", orderV2(users, orders));
 
         // Way 3 using rest operator
         function orderV3(users, orders) {
@@ -118,33 +118,33 @@
             }
             return final;
         }
-        // console.log("@TS order3 , ", orderV3(users, orders));
+        console.log("@TS order3 , ", orderV3(users, orders));
 
-        // Way 4 using filter
-        function orderV4(users, orders) {
-            let final = [];
-            for (let i of users) {
-                let result = orders.map((item) => {
-                    // console.log(i)
-                    if (i.id === item.userId) {
-                        let {userId, ...restObj} = item;
-                        // console.log(restObj,"k")
-                        return restObj;
-                    }
-                })
-                console.log("@TSLL", result);
-                final.push({
-                    userId: i.id,
-                    userName: i.name,
-                    orders: result
-                })
-            }
-            return final;
-        }
-        console.log("@TS order4 , ", orderV4(users, orders));
+        // Way 4 using filter/map
+        // function orderV4(users, orders) {
+        //     let final = [];
+        //     for (let i of users) {
+        //         let result = orders.map((item) => {
+        //             // console.log(i)
+        //             if (i.id === item.userId) {
+        //                 let {userId, ...restObj} = item;
+        //                 // console.log(restObj,"k")
+        //                 return restObj;
+        //             }
+        //         })
+        //         console.log("@TSLL", result);
+        //         final.push({
+        //             userId: i.id,
+        //             userName: i.name,
+        //             orders: result
+        //         })
+        //     }
+        //     return final;
+        // }
+        // console.log("@TS order4 , ", orderV4(users, orders));
 
         // Way 5
-        function orderV5(users, orders) {
+        function orderV4(users, orders) {
             let final = [];
             for (let i of users) {
                 let result = orders.reduce((acc, curr) => {
@@ -159,7 +159,7 @@
                     }
                     return acc;
                 }, [])
-                console.log("@TSLL", result);
+                // console.log("@TSLL", result);
                 final.push({
                     userId: i.id,
                     userName: i.name,
@@ -168,7 +168,7 @@
             }
             return final;
         }
-        console.log("@TS order5 , ", orderV5(users, orders));
+        console.log("@TS order4 , ", orderV4(users, orders));
 
 
         // const final = [
