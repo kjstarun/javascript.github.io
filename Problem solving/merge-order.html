@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const users = [
+            {
+                id: 1,
+                name: "Ankit Jain",
+            },
+            {
+                id: 2,
+                name: "Shankar Sahu",
+            },
+            {
+                id: 3,
+                name: "Akash Kushwaha",
+            },
+        ];
+
+        const orders = [
+            {
+                orderId: 101,
+                userId: 1,
+                productId: 123,
+                productName: "Apple iPhone 14 Pro Max",
+            },
+            {
+                orderId: 102,
+                userId: 1,
+                productId: 124,
+                productName: "Apple MacBook Pro",
+            },
+            {
+                orderId: 103,
+                userId: 1,
+                productId: 125,
+                productName: "Apple iWatch 7 series",
+            },
+            {
+                orderId: 104,
+                userId: 2,
+                productId: 126,
+                productName: "Samsung S22",
+            },
+        ];
+
+
+        // Way 1 using simple for loop
+        function orderV1(users, orders) {
+            let final = [];
+            for (let i of users) {
+                let orderList = []
+                for (let j of orders) {
+                    if (i.id === j.userId) {
+                        // console.log(j.productId);
+                        orderList.push({
+                            orderId: j.orderId,
+                            productId: j.productId,
+                            productName: j.productName
+                        })
+                    }
+                }
+                final.push({
+                    userId: i.id,
+                    userName: i.name,
+                    orders: orderList
+                })
+            }
+            return final;
+        }
+        // console.log("@TS order1, ", orderV1(users, orders));
+
+        // Way 2 using object destructuring
+        function orderV2(users, orders) {
+            let final = [];
+            for (let i of users) {
+                let orderList = [];
+                for (let j of orders) {
+                    if (i.id === j.userId) {
+                        const {orderId, productId, productName} = j;
+                        orderList.push({orderId, productId, productName});
+                    }
+                }
+                final.push({
+                    userId: i.id,
+                    userName: i.name,
+                    orders: orderList
+                })
+            }
+            return final;
+        }
+        // console.log("@TS order2 , ", orderV2(users, orders));
+
+        // Way 3 using rest operator
+        function orderV3(users, orders) {
+            let final = [];
+            for (let i of users) {
+                let orderList = [];
+                for (let j of orders) {
+                    if (i.id === j.userId) {
+                        let {userId, ...restObj} = j
+                        orderList.push(restObj);
+                    }
+                }
+                final.push({
+                    userId: i.id,
+                    userName: i.name,
+                    orders: orderList
+                })
+            }
+            return final;
+        }
+        // console.log("@TS order3 , ", orderV3(users, orders));
+
+        // Way 4 using filter
+        function orderV4(users, orders) {
+            let final = [];
+            for (let i of users) {
+                let result = orders.map((item) => {
+                    // console.log(i)
+                    if (i.id === item.userId) {
+                        let {userId, ...restObj} = item;
+                        // console.log(restObj,"k")
+                        return restObj;
+                    }
+                })
+                console.log("@TSLL", result);
+                final.push({
+                    userId: i.id,
+                    userName: i.name,
+                    orders: result
+                })
+            }
+            return final;
+        }
+        console.log("@TS order4 , ", orderV4(users, orders));
+
+        // Way 5
+        function orderV5(users, orders) {
+            let final = [];
+            for (let i of users) {
+                let result = orders.reduce((acc, curr) => {
+                    if (curr.userId === i.id) {
+                        let {userId, ...restObj} = curr;
+                        acc.push(restObj);
+                        // acc.push({
+                        //     orderId: curr.orderId,
+                        //     productId: curr.productId,
+                        //     productName: curr.productName
+                        // })
+                    }
+                    return acc;
+                }, [])
+                console.log("@TSLL", result);
+                final.push({
+                    userId: i.id,
+                    userName: i.name,
+                    orders: result
+                })
+            }
+            return final;
+        }
+        console.log("@TS order5 , ", orderV5(users, orders));
+
+
+        // const final = [
+        //     {
+        //         userId: 1,
+        //         userName: "Ankit Jain",
+        //         orders: [
+        //             {
+        //                 orderId: 101,
+        //                 productId: 123,
+        //                 productName: "Apple iPhone 14 Pro Max",
+        //             },
+        //             {
+        //                 orderId: 102,
+        //                 productId: 124,
+        //                 productName: "Apple MacBook Pro",
+        //             },
+        //             {
+        //                 orderId: 103,
+        //                 productId: 125,
+        //                 productName: "Apple iWatch 7 series",
+        //             },
+        //         ],
+        //     },
+        //     {
+        //         userId: 2,
+        //         userName: "Shankar Sahu",
+        //         orders: [
+        //             {
+        //                 orderId: 104,
+        //                 userId: 2,
+        //                 productId: 126,
+        //                 productName: "Samsung S22",
+        //             },
+        //         ],
+        //     },
+        //     {
+        //         userId: 3,
+        //         userName: "Akash Kushwaha",
+        //         orders: [],
+        //     },
+        // ];
+
+    </script>
+</body>
+
+</html>
