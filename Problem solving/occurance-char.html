@@ -52,13 +52,16 @@
 
         // Way 3
         function occuranceV3(str) {
-            let arr = str.split(" ");
+            let new_str = str.toLowerCase();
+            let arr = new_str.split("");;
+            // console.log(arr);
             let result = arr.reduce((acc, curr) => {
-                for (let i of arr) {
-                    acc.hasOwnProperty(i) ? acc[i]++ : acc[i] = 1;
+                if (curr !== " ") {
+                    acc.hasOwnProperty(curr) ? acc[curr]++ : acc[curr] = 1;
                 }
-            }, {})
-            return acc;
+                return acc;
+            },{})
+            return result;
         }
         console.log(occuranceV3(str));
     </script>
