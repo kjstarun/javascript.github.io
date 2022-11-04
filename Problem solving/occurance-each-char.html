@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Get a string
+        // Create a function and pass the string as a arguement.
+        // Create a new empty string
+        // Create a counter variable and set it as 0
+        // Iterate the string
+        // Compare with next value
+        // If it matches increment the count by one
+        // If not matching, then increment the count by one and add the current value and counter to the new string.
+        // Note: (The above step is because when the values are not matching then we should add the count for the current iterated value)
+        // Now set the counter to zero again and proceed with the next iteration.
+        // After completing of all iteration, return the new string.
+
+
+        const str = "AAAABBBCCDAABBbbBCCCeEE";
+
+        function countV1(str){
+            let str2 = str.toUpperCase();
+            let new_str = ""
+            let c = 1;
+            for (let i = 0; i < str2.length; i++) {
+                if (str2[i] === str2[i + 1]) {
+                    c++;
+                }
+                else {
+                    // c++;
+                    new_str += str2[i] + c;
+                    c = 1;
+                }
+            }
+            return new_str;
+        }
+        console.log("@TS countV1",countV1(str));
+    </script>
+</body>
+
+</html>
