@@ -34,26 +34,6 @@
         }
         console.log("@TS Way 1", getId(document.body, "div2").innerText);
 
-        // 
-
-        // way 2
-        const getElementById = (id) => {
-            const queue = [document.body];
-            // console.log("Q",queue);
-            while (queue.length) {
-                const curr = queue.shift();
-                // console.log(curr);
-                if (curr.id === id) {
-                    return curr;
-                }
-                if (curr.children.length) {
-                    queue.push(...curr.children);
-                }
-            }
-        }
-        console.log("@TS Way 2", getElementById('div2').innerText);
-
-
     </script>
 </body>
 
