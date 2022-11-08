@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const profile = {
+            name: "tarun",
+            age: 21,
+            // state: "tn",
+            state: false
+        }
+
+        function check(profile, name) {
+            if (profile.hasOwnProperty(name)) {
+                console.log("hasOwnProperty");
+            }
+        }
+
+        function check2(profile, name) {
+            if (profile[name]) {
+                console.log("[]");
+            }
+        }
+
+        check(profile, 'name')
+        check2(profile, 'name')
+
+        check(profile,'state')
+        check2(profile,'state')
+
+    </script>
+</body>
+
+</html>

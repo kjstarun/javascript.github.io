@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ['banana', 'orange', 'apple', 'carrot', 'pineapple'];
+        const car = ['ertiga', 'civic', 'seltos', 'creta'];
+        const bike = ['fz', 'splendor', 'activa'];
+
+        function toString(arr) {
+            return arr.toString();
+        }
+
+        function join1(arr) {
+            return arr.join(" * ");
+        }
+
+        function join2(arr) {
+            return arr.join(" / ");
+
+        }
+
+        function pop(arr) {
+            arr.pop();
+            return arr;
+        }
+
+        function shift(arr) {
+            arr.shift();
+            return arr;
+        }
+
+        function push(arr, i) {
+            arr.push(i);
+            return arr;
+        }
+
+        function unshift(arr, i) {
+            arr.unshift(i);
+            return arr;
+        }
+
+        function change(arr, i) {
+            arr[0] = i;
+            return arr;
+        }
+
+        function remove(arr) {
+            delete arr[3];
+            return arr;
+        }
+
+        function splice1(arr) {
+            arr.splice(2, 0, "lemon", "strawberry");
+            return arr;
+        }
+
+        function sort(arr) {
+            arr.sort();
+            return arr;
+        }
+
+        function reverse(arr) {
+            arr.reverse();
+            return arr;
+        }
+
+        function concat(car,bike){
+            const concat = car.concat(bike);
+            return concat;
+        }
+
+        console.log("@TS tostring, ", toString(arr));
+        console.log("@TS join1, ", join1(arr));
+        console.log("@TS join2, ", join2(arr));
+        console.log("@TS pop, ", pop(arr));
+        console.log("@TS shift, ", shift(arr));
+        console.log("@TS push, ", push(arr, "pineapple"));
+        console.log("@TS unshift, ", unshift(arr, "banana"));
+        console.log("@TS change, ", change(arr, "kiwi"));
+        console.log("@TS remove, ", remove(arr));
+        console.log("@TS splice, ", splice1(arr));
+        console.log("@TS sort, ", sort(arr));
+        console.log("@TS reverse, ", reverse(arr));
+        console.log("@TS concat, ", concat(car,bike));
+
+    </script>
+</body>
+
+</html>

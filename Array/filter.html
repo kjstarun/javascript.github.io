@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+
+<script>
+    const arr = [2, 3, 4, 5, 6, 7, 8, 6];
+
+    // Write a logic to eliminate number not divisible by 3 i.e. = [3,6,6]
+
+    // 1st way
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 3 === 0) {
+            newArr.push(arr[i]);
+        }
+    }
+
+    // 2nd Way
+    const newArr2 = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 3 !== 0) {
+            continue;
+        }
+
+        newArr2.push(arr[i]);
+    }
+
+    // 3rd way
+    const newArr3 = [];
+    for (let item of arr) {
+        if (item % 3 === 0) {
+            newArr3.push(item);
+        }
+    }
+
+    // 4th way
+    const newArr4 = arr.filter((item) => {
+        return item % 3 === 0 ? true : false;
+    });
+
+    // 5th way
+    const newArr5 = arr.filter((item) => (item % 3 === 0 ? true : false));
+
+    // 6th way
+    const newArr6 = arr.filter((item) => item % 3 === 0);
+
+    console.log("@ST newArr6: ", newArr6);
+
+    // Filter number divisible by 3 & 5
+
+    const newArr7 = arr.filter((item) => item % 3 === 0 && item % 5 === 0);
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+<script>
+    const numbers = [1, 2, 3, 4, 5, 6];
+
+    // Reduce (sum)
+    const sum = numbers.reduce((accumulator, currentVal) => {
+        accumulator += currentVal;
+        return accumulator;
+    }, 0);
+
+    console.log("@TS sum, ",sum);
+
+    const resultData = numbers.reduce((acc, curr) => {
+        if (curr % 2 === 0) {
+            acc.push(curr * 3);
+        }
+        return acc;
+    }, []);
+
+    console.log("@TS divisible by 3,", resultData);
+
+    // Vowels
+
+    const vowels = {
+        a: true,
+        e: true,
+        i: true,
+        o: true,
+        u: true,
+    };
+    const message = "Tarun";
+
+    const vowelsCount = message.split("").reduce((acc, curr) => {
+        // console.log(acc);
+        if (vowels.hasOwnProperty(curr)) {
+            const currentCount = acc[curr] || 0;
+            acc[curr] = currentCount + 1;
+        }
+        return acc;
+    }, {});
+
+    console.log("@TS vowels, ",vowelsCount);
+
+    const uName = "Tarun";
+    const reverseName = uName.split("").reduce((acc, curr) => {
+        // console.log(acc, curr);
+        return curr + acc;
+    }, "");
+
+    console.log("@TS reverse, ",reverseName);
+</script>

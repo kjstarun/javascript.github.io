@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body></body>
+
+</html>
+<script>
+    const arr = [1, 2, 3, 4, 5]; // 3,6,9,12,15
+
+    // 1st Way
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(arr[i] * 3);
+    }
+
+    // newArr;
+
+    // 2nd way
+    const newArr2 = arr.map(function (item) {
+        return item * 3;
+    });
+
+    // 3rd way
+    const newArr3 = arr.map((item) => {
+        return item * 3;
+    });
+
+    // 4rd way
+    const newArr4 = arr.map((item) => item * 3);
+</script>
