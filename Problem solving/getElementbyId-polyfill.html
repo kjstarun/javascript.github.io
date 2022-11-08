@@ -13,13 +13,36 @@
         <div id="div2">Hi Hello</div>
         <div id="div3">Javascript</div>
     </div>
+    <div id="div4">
+        <div id="div5">Buddy</div>
+    </div>
     <script>
-        const getElementById = (element, id) => {
-            const queue = [element];
-            console.log(queue);
+
+        // way 1
+        const getId = (element, id) => {
+            // console.log(element);
+            if (element.id === id) {
+                return element;
+            }
+            if (element.children.length) {
+                let result = undefined;
+                for (let i = 0; i < element.children.length; i++) {
+                    result = result || getId(element.children[i], id);
+                }
+                return result;
+            }
+        }
+        console.log("@TS Way 1", getId(document.body, "div2").innerText);
+
+        // 
+
+        // way 2
+        const getElementById = (id) => {
+            const queue = [document.body];
+            // console.log("Q",queue);
             while (queue.length) {
                 const curr = queue.shift();
-                console.log(curr);
+                // console.log(curr);
                 if (curr.id === id) {
                     return curr;
                 }
@@ -27,8 +50,10 @@
                     queue.push(...curr.children);
                 }
             }
-        };
-        console.log(getElementById(document.documentElement, 'div3'));
+        }
+        console.log("@TS Way 2", getElementById('div2').innerText);
+
+
     </script>
 </body>
 
