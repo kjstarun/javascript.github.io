@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <div id="div2">Hi Hello</div>
+        <div id="div3">Javascript</div>
+    </div>
+    <script>
+        const getElementById = (element, id) => {
+            const queue = [element];
+            console.log(queue);
+            while (queue.length) {
+                const curr = queue.shift();
+                console.log(curr);
+                if (curr.id === id) {
+                    return curr;
+                }
+                if (curr.children.length) {
+                    queue.push(...curr.children);
+                }
+            }
+        };
+        console.log(getElementById(document.documentElement, 'div3'));
+    </script>
+</body>
+
+</html>
