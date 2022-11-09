@@ -27,13 +27,34 @@
             if (element.children.length) {
                 let result = undefined;
                 for (let i = 0; i < element.children.length; i++) {
-                    result = result || getId(element.children[i], id);
+                    // result = result || getId(element.children[i], id);
+                    if (result) {
+                        return result;
+                    } else {
+                        result = getId(element.children[i], id);
+                    }
                 }
                 return result;
             }
         }
-        console.log("@TS Way 1", getId(document.body, "div2").innerText);
+        console.log("@TS Way 1", getId(document.body, "div3").innerText);
 
+        // way 2
+        const getElementById = (id) => {
+            const queue = [document.body];
+            // console.log("Q",queue);
+            while (queue.length) {
+                const curr = queue.shift();
+                // console.log(curr);
+                if (curr.id === id) {
+                    return curr;
+                }
+                if (curr.children.length) {
+                    queue.push(...curr.children);
+                }
+            }
+        }
+        console.log("@TS Way 2", getElementById('div3').innerText);
     </script>
 </body>
 
