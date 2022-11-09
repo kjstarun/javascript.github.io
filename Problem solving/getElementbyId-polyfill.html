@@ -17,6 +17,15 @@
         <div id="div5">Buddy</div>
     </div>
     <script>
+        // First create a function and pass the body of the page and the requested id
+        // In function, (Recursive function)
+        // Write a base condition to break the recursive function as when the requested id matches and the expected data found, then return from function.
+        // If not found then check whether the passed element has children
+        // If true then create a variable to store the result and set to undefined.
+        // Iterate a for loop on the found children of the body and check
+        // If result is a truthy value then return the result
+        // If not then call the same recursive function into the result variable (recursivley)
+        // After the loop completed return the results from the function.
 
         // way 1
         const getId = (element, id) => {
