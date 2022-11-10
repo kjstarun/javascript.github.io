@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+</head>
+
+<body>
+    JS Promise
+</body>
+
+<script>
+    const P1 = async () => {
+        return new Promise((resolve, reject) => {
+            resolve(1);
+        });
+    };
+
+    const P2 = async () => {
+        return new Promise((resolve, reject) => {
+            resolve(2);
+        });
+    };
+    const P3 = async () => {
+        return new Promise((resolve, reject) => {
+            resolve(3);
+        });
+    };
+    const P4 = async () => {
+        return new Promise((resolve, reject) => {
+            resolve(4);
+        });
+    };
+
+    const P5 = async () => {
+        return new Promise((resolve, reject) => {
+            resolve(5);
+        });
+    };
+
+     P1()
+      .then((data) => {
+        console.log(data);
+
+        P2()
+          .then((data) => {
+            console.log(data);
+            P3()
+              .then((data) => {
+                console.log(data);
+
+                P4()
+                  .then((data) => {
+                    console.log(data);
+
+                    P5()
+                      .then((data) => {
+                        console.log(data);
+                        P5()
+                          .then((data) => {
+                            console.log(data);
+                            P5()
+                              .then((data) => {
+                                console.log(data);
+                                P5()
+                                  .then((data) => {
+                                    console.log(data);
+                                    P5()
+                                      .then((data) => {
+                                        console.log(data);
+                                        P5()
+                                          .then((data) => {
+                                            console.log(data);
+                                          })
+                                          .catch((err) => {
+                                            console.log(err);
+                                          });
+                                      })
+                                      .catch((err) => {
+                                        console.log(err);
+                                      });
+                                  })
+                                  .catch((err) => {
+                                    console.log(err);
+                                  });
+                              })
+                              .catch((err) => {
+                                console.log(err);
+                              });
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      })
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          })
+
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // Async & Await
+
+    const runPromises = async () => {
+        const p1Response = await P1().catch((err) => null);
+        console.log(p1Response);
+        if (!p1Response) {
+            console.log("P1 failed");
+            return "P1 failed";
+        }
+
+        const p2Response = await P2().catch((err) => null);
+        console.log(p2Response);
+        if (!p2Response) {
+            console.log("P2 failed");
+            return "P2 failed";
+        }
+
+        const p3Response = await P3().catch((err) => null);
+        console.log(p3Response);
+        if (!p3Response) {
+            console.log("P3 failed");
+            return "P3 failed";
+        }
+
+        const p4Response = await P4().catch((err) => null);
+        console.log(p4Response);
+        if (!p4Response) {
+            console.log("P4 failed");
+            return "P4 failed";
+        }
+
+        const p5Response = await P5().catch((err) => null);
+        console.log(p5Response);
+        if (!p5Response) {
+            console.log("P5 failed");
+            return "P5 failed";
+        }
+
+        return "Done";
+    };
+
+    runPromises();
+
+    const promiseAll = async () => {
+        const results = await Promise.all([P1(), P2(), P3(), P4(), P5()]).catch(
+            (err) => {
+                console.log(err);
+                return null;
+            }
+        );
+
+        console.log(results);
+        if (!results) {
+            return null;
+        }
+
+        return results;
+    };
+
+    // promiseAll();
+</script>
+
+</html>

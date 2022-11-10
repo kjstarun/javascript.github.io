@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const Promise1 = async () => {
+            return new Promise((resolve, reject) => {
+                resolve(1);
+            });
+        };
+
+        const Promise2 = async () => {
+            return new Promise((resolve, reject) => {
+                resolve(2);
+            });
+        };
+        const Promise3 = async () => {
+            return new Promise((resolve, reject) => {
+                resolve(3);
+            });
+        };
+        const Promise4 = async () => {
+            return new Promise((resolve, reject) => {
+                reject(4);
+            });
+        };
+
+        const Promise5 = async () => {
+            return new Promise((resolve, reject) => {
+                resolve(5);
+            });
+        };
+
+        Promise1().then((data) => {
+            console.log(data);
+            Promise2().then((data) => {
+                console.log(data);
+                Promise3().then((data) => {
+                    console.log(data)
+                    Promise4().then((data) => {
+                        console.log(data)
+                        Promise5().then((data) => {
+                            console.log(data)
+                        }).catch((err) => {
+                            console.log(err);
+                        })
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+                }).catch((err) => {
+                    console.log(err);
+                })
+            }).catch((err) => {
+                console.log(err);
+            })
+        }).catch((err) => {
+            console.log(err);
+        })
+
+        const asyncPromise = async () => {
+            const Promise1Result = await Promise1().catch((err) => {
+                console.log("failed");
+            });
+            console.log("Promise1Result", Promise1Result);
+            const Promise2Result = await Promise2().catch((err) => {
+                console.log("failed");
+            });
+            console.log("Promise2Result", Promise2Result);
+            const Promise3Result = await Promise3().catch((err) => {
+                console.log("failed");
+            });
+            console.log("Promise3Result", Promise3Result);
+            const Promise4Result = await Promise4().catch((err) => {
+                console.log("failed");
+            });
+            console.log("Promise4Result", Promise4Result);
+            const Promise5Result = await Promise5().catch((err) => {
+                console.log("failed");
+            });
+            console.log("Promise5Result", Promise5Result);
+        }
+
+        asyncPromise();
+
+        let promise = [Promise1(), Promise2(), Promise3(), Promise4(), Promise5()]
+        const pAll = async () => {
+            const output = await Promise.all(promise).catch((err) => {
+                console.log(err, "Failed");
+            });
+            console.log("all", output);
+            return output;
+        }
+        pAll();
+
+        const pAny = async () => {
+            const output = await Promise.any(promise).catch((err) => {
+                console.log(err, "Failed");
+            });
+            console.log("any", output);
+            return output;
+        }
+        pAny();
+
+        const pAllSettled = async () => {
+            const output = await Promise.allSettled(promise).catch((err) => {
+                console.log(err, "Failed");
+            });
+            console.log("allSettled", output);
+            return output;
+        }
+        pAllSettled();
+
+    </script>
+</body>
+
+</html>
