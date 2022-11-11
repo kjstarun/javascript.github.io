@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Get num1 and num2 as string
+        // Create a function and pass num1 and num2 as strings
+        // Create a empty string for result
+        // Declare two variables and store th length of num1 and num2 respectively by decrementing one from length.
+        // Create a variable for difference
+        // Check for the length of two strings
+        // If not equal, then check which is smaller and add zeros for the additional length with largest num string
+        // Iterate a for loop
+        // Create two variables of first and second and store respective values from num1 and num2 by typecasting it.
+        // Create a variable sum and store the sum of first, second and carry.
+        // If length of sum is one then add it to the result string and set carry as 0
+        // If not one, then add the second index of the sum to the result and set carry as first index of the sum
+        // Continue with next iteration
+        // After for loop,
+        // Check if carry is not equal to zero, then add result with carry.
+        // Return the result
+
+        let num1 = "9333852702227987";
+        let num2 = "85731737104263";
+
+        // let addStrings = (num1, num2) => {
+        //     num1 = 1 * num1;
+        //     num2 = 1 * num2;
+        //     let r = "" + (num1 + num2);
+        //     return r;
+        // };
+        // console.log(addStrings(num1,num2));
+
+        // This will not work for nig integers like "9333852702227987"
+
+        // Way 1
+        const addStrings2 = (num1, num2) => {
+            let i = num1.length - 1;
+            let j = num2.length - 1;
+            let final = "";
+            let carry = 0;
+            while (i >= 0 || j >= 0) {
+
+                if (i < 0) {
+                    first = 0;
+                } else {
+                    first = +(num1[i]);
+
+                }
+                if (j < 0) {
+                    second = 0;
+                } else {
+                    second = +(num2[j]);
+                }
+                let sum = first + second + carry;
+                // console.log("s", sum);
+                let remainder = sum % 10;
+                carry = Math.floor(sum / 10);
+                final = remainder + final;
+                i--;
+                j--;
+            }
+            if (carry == 1) {
+                final = carry + final;
+            }
+            return final;
+        };
+        console.log(addStrings2(num1, num2));
+
+        // Way 2
+        let zero = (diff, number) => {
+            let temp = "";
+            for (let i = 0; i < diff; i++) {
+                temp = temp + "0";
+            }
+            return temp + number;
+        }
+        let addStrings3 = (num1, num2) => {
+            let result = "";
+            let i = num1.length - 1;
+            let j = num2.length - 1;
+            let diff = 0;
+            if (i !== j) {
+                if (i > j) {
+                    diff = i - j;
+                    num2 = zero(diff, num2);
+                }
+                diff = j - i;
+                num1 = zero(diff, num1);
+            }
+            // console.log(num1.length, num2.length);
+            let l = num1.length - 1;
+            let carry = 0;
+            for (let i = l; i >= 0; i--) {
+                let first = +(num1[i]);
+                let second = +(num2[i]);
+                let sum = first + second + carry + "";
+                if (sum.length === 1) {
+                    result = sum + result;
+                    carry = 0;
+                } else {
+                    result = sum[1] + result;
+                    carry = +(sum[0]);
+                }
+            }
+            if (carry !== 0) {
+                result = carry + result;
+            }
+            console.log(result);
+        }
+        addStrings3(num1, num2);
+    </script>
+</body>
+
+</html>
