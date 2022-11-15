@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function restaurantCustomer() {
+            return getCustomer()
+                .then(customer => {
+                    return getOrder(customer);
+                }).then(order => {
+                    return prepareFood(order);
+                }).then(meal => {
+                    return serveFood(meal);
+                }).then(food => {
+                    return eatFood(food, customer);
+                }).catch(showError);
+        }
+
+        const restaurant = async () => {
+            try {
+                const customer = await getCustomer();
+                const order = await getOrder(customer);
+                const prepare = await prepareFood(order);
+                const meal = serveFood(prepare);
+                const food = eatFood(meal, customer);
+                return food;
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function ex4() {
+            return fetch('https://microsoft.com').then(res).then(res2);
+        }
+        function res(result) {
+            return result.ok;
+        }
+
+        function res2(result) {
+            console.log(result);
+        }
+
+        // 
+
+        const ex4 = async () => {
+            const res = await fetch('https://microsoft.com');
+            const res2 = await res(res);
+            return res2(res2);
+        }
+        function res(result) {
+            return result.ok;
+        }
+
+        function res2(result) {
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>
