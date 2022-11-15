@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Create a array
+        // Set length as 4
+        // Create a function and pass the array, length, element as a arguement
+        // In function,
+        // If the length is less than 4,
+        // Then check whether the current element exists,
+        // If exists, remove that element and again push it to the array at last index
+        // If not exists, simply push the element to the array
+        // If the length is greater than or equal to 4, then shift the first element and push the current element
+
+        let arr = ['apple', 'samsung', 'lg'];
+        let len = 4;
+        // const add = (arr, len, elem) => {
+        //     if (arr.length === 0) {
+        //         arr.push(elem);
+        //     } else if (arr.length <= len) {
+        //         if (arr.includes(elem)) {
+        //             let i = arr.indexOf(elem);
+        //             console.log("@TS", i);
+        //             arr.splice(i, 1);
+        //             arr.push(elem);
+        //         } else {
+        //             arr.shift();
+        //             arr.push(elem);
+        //         }
+        //     }
+        // }
+        const add = (arr, len, elem) => {
+            if (arr.length === 0) {
+                arr.push(elem);
+            } else if (arr.includes(elem)) {
+                let i = arr.indexOf(elem);
+                console.log("@TS", i);
+                arr.splice(i, 1);
+                arr.push(elem);
+            } else if (arr.length >= len) {
+                arr.shift();
+                arr.push(elem);
+            } else {
+                arr.push(elem);
+            }
+        }
+        // add(arr, len, "sony");
+        add(arr, len, "samsung");
+        add(arr, len, "google");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "mi");
+        add(arr, len, "palm");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "glue");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "pini");
+        add(arr, len, "pini");
+        add(arr, len, "samsung");
+        add(arr, len, "kii");
+        add(arr, len, "kii");
+        add(arr, len, "kii");
+        add(arr, len, "kii");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "samsung");
+        add(arr, len, "glue");
+        add(arr, len, "fun");
+        console.log(arr);
+    </script>
+</body>
+
+</html>

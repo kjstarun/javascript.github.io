@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 9, 18];
+        // let newArr = arr.map((i) => {
+        //     return i * 3;
+        // });
+        // console.log("arr :", arr, newArr);
+        Array.prototype.tarunFilter = function (cb) {
+            console.log("tarun :", this, cb);
+            let newArr = [];
+            for (let i = 0; i < this.length; i++) {
+                const result = cb(this[i])
+                if (result) {
+                    newArr.push(this[i]);
+                }
+            }
+            return newArr;
+        };
+        const abc = (i) => {
+            return i % 9 === 0;
+        };
+        const newArr2 = arr.tarunFilter(abc);
+        console.log("newArr2 :", newArr2);
+    </script>
+</body>
+
+</html>
