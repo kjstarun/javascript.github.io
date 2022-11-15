@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #body {
+            text-align: center;
+            background-color: #fff;
+        }
+
+        input {
+            width: 100px;
+            height: 50px;
+            border: 1px dotted transparent;
+            outline: none;
+            margin-bottom: 100px;
+        }
+
+        h1 {
+            padding: 100px;
+        }
+
+        h1,
+        h2,
+        h4 {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1>Background Switcher</h1>
+    <input type="color" name="color" id="color1" value="#fff">
+    <input type="color" name="color" id="color2" value="#fff">
+    <h2>Current code of color applied</h2>
+    <h4 id="currentcolor"></h4>
+    <script>
+        let color1 = document.getElementById("color1");
+        let color2 = document.getElementById("color2");
+        let body = document.getElementById("body");
+        color1.addEventListener("input", () => {
+            body.style.backgroundImage = "linear-gradient(to right," + color1.value + "," + color2.value + ")";
+            apply();
+        })
+        color2.addEventListener("input", () => {
+            body.style.backgroundImage = "linear-gradient(to right," + color1.value + "," + color2.value + ")";
+            apply();
+        })
+        const apply = () => {
+            document.getElementById("currentcolor").textContent = body.style.backgroundImage = color1.value + "," + color2.value;
+        }
+    </script>
+</body>
+
+</html>
