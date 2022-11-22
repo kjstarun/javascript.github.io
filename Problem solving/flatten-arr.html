@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Get an array in 2D
+         * Create a function and pass the array
+         * In function, create a new array
+         * Run a for of loop
+         * If the iterated value is a array, then I will a copy of array using spread operator and push it to the new array
+         * If it is an number then, push it as it is to the new array
+         * Return the new array
+        */
+
+        /**
+         * Get an array in 2D
+         * Create a function and pass the array
+         * In function, create a new array
+         * Run a for loop
+         * If the iterated value is an array, Iterate the array again and add the values to the new array
+         * If the iterated value is an number, push it as it is to the new array
+         * Return the new array
+         */
+
+        // Version 1
+
+        //  Approach 1
+        // let arr = [1, 2, [3, 4], 5, [6, 7, 8, 9], 6];
+        // function flatten(arr) {
+        //     let newArr = [];
+        //     for (let i of arr) {
+        //         if (Array.isArray(i)) {
+        //             newArr.push(...i)
+        //         } else {
+        //             newArr.push(i)
+        //         }
+        //     }
+        //     console.log(newArr);
+        // }
+        // flatten(arr);
+
+        // // // Approach 2
+        // function flatten2(arr) {
+        //     let newArr = [];
+        //     for (let i of arr) {
+        //         if (Array.isArray(i)) {
+        //             for (let j of i) {
+        //                 newArr.push(j);
+        //             }
+        //         } else {
+        //             newArr.push(i);
+        //         }
+        //     }
+        //     console.log(newArr);
+        // }
+        // flatten2(arr);
+
+
+
+
+        // Version 2
+        const arr = [
+            1,
+            2,
+            [3, 4, [3, 4, [3, 4], [3, 4]]],
+            5,
+            [6, 7, 8, [3, 4], 9],
+            6,
+            [3, 4, [3, 4, [3, 4, [3, 4]]]],
+        ];
+        let newArr1 = [];
+        const flat = (index, arr, newArr1) => {
+            if (index >= arr.length) {
+                return newArr1;
+            } else if (Array.isArray(arr[index])) {
+                flat(0, arr[index], newArr1);
+            } else {
+                newArr1.push(arr[index]);
+            }
+            flat(index + 1, arr, newArr1);
+        }
+        flat(0, arr, newArr1);
+        console.log(newArr1);
+
+
+
+
+        let newArr = [];
+        function flat_arrayV1(arr, newArray) {
+            for (let i of arr) {
+                if (Array.isArray(i)) {
+                    flat_arrayV1(i, newArray);
+                }
+                else {
+                    newArray.push(i);
+                }
+            }
+            return newArray;
+        }
+
+        flat_arrayV1(arr, newArr);
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

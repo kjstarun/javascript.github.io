@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const products = new Map();
+        const maxSize = 4;
+
+        const addElement = (elem) => {
+            const hasElem = products.get(elem);
+            if (hasElem) {
+                products.delete(elem); // 3, 1,2,4
+                products.set(elem, elem); // added 3 again
+                console.log("@ts set", new Map(products), elem);
+                return;
+            }
+
+            // If not present but max filled
+            if (products.size === maxSize) {
+                products.delete(products.keys().next().value);
+                products.set(elem, elem);
+                console.log("@ts size ", new Map(products), elem);
+                return;
+            }
+
+            products.set(elem, elem);
+            console.log("@ts new", new Map(products), elem);
+
+        };
+
+        const getQueue = () => {
+            return products.values();
+        };
+
+        addElement("apple");
+        addElement("samsung");
+        addElement("google");
+        addElement("samsung");
+        addElement("apple");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("mi");
+        // addElement("palm");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("glue");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("pini");
+        // addElement("pini");
+        // addElement("samsung");
+        // addElement("kii");
+        // addElement("kii");
+        // addElement("kii");
+        // addElement("kii");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("samsung");
+        // addElement("glue");
+        // addElement("fun");
+
+        console.log(getQueue());
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Get a string
+         * Create a function and pass string and target
+         * Split the string into an array
+         * Check whether the array has the targeted element or not using inbuilt function (includes);
+         * If exists return true
+         * Else return false
+        */
+
+        /**
+         * Get a string
+         * Create a function and pass string and target
+         * Split the string into an array
+         * Iterate the array
+         * If the iterated value is matching the target, then return true
+         * Else return false
+        */
+        const str = "My name is Tarun";
+
+        // function present(str) {
+        //     if (str.includes("Taru")) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // console.log(present(str));
+
+        function present(str, target) {
+            let arr = str.split(" ");
+            if (arr.includes(target)) {
+                return true;
+            }
+            return false;
+        }
+        console.log(present(str, "Tarun"));
+
+        function present2(str, target) {
+            let arr = str.split(" ");
+            let flag;
+            for (let i of arr) {
+                if (i === target) {
+                    flag = true;
+                    break;
+                }
+                flag = false;
+            }
+            return flag;
+        }
+        console.log(present2(str, "Tarun"));
+
+    </script>
+</body>
+
+</html>

@@ -20,38 +20,52 @@
         // If not exists, simply push the element to the array
         // If the length is greater than or equal to 4, then shift the first element and push the current element
 
-        let arr = ['apple', 'samsung', 'lg'];
+        // let arr = ['apple', 'samsung', 'lg'];
+        let arr ={};
         let len = 4;
         // const add = (arr, len, elem) => {
         //     if (arr.length === 0) {
         //         arr.push(elem);
-        //     } else if (arr.length <= len) {
-        //         if (arr.includes(elem)) {
+        //     } else if (arr.includes(elem)) {
+        //         let i = arr.indexOf(elem);
+        //         console.log("@TS", i);
+        //         arr.splice(i, 1);
+        //         arr.push(elem);
+        //     } else if (arr.length >= len) {
+        //         arr.shift();
+        //         arr.push(elem);
+        //     } else {
+        //         arr.push(elem);
+        //     }
+        // }
+        const add = (obj, len, elem) => {
+            if (Object.keys(obj).length === 0) {
+                obj[elem] = elem;
+            } else if (obj.hasOwnProperty(elem)) {
+                delete obj.elem;
+                obj[elem] = elem;
+            } else if (Object.keys(obj).length >= len) {
+                delete obj[Object.keys(obj)[0]];
+                obj[elem] = elem;
+            } else {
+                obj[elem] = elem;
+            }
+        }
+        // const add = (arr, len, elem) => {
+        //         if (arr.length === 0) {
+        //             arr.unshift(elem);
+        //         } else if (arr.includes(elem)) {
         //             let i = arr.indexOf(elem);
         //             console.log("@TS", i);
         //             arr.splice(i, 1);
-        //             arr.push(elem);
+        //             arr.unshift(elem);
+        //         } else if (arr.length >= len) {
+        //             arr.pop();
+        //             arr.unshift(elem);
         //         } else {
-        //             arr.shift();
-        //             arr.push(elem);
+        //             arr.unshift(elem);
         //         }
         //     }
-        // }
-        const add = (arr, len, elem) => {
-            if (arr.length === 0) {
-                arr.push(elem);
-            } else if (arr.includes(elem)) {
-                let i = arr.indexOf(elem);
-                console.log("@TS", i);
-                arr.splice(i, 1);
-                arr.push(elem);
-            } else if (arr.length >= len) {
-                arr.shift();
-                arr.push(elem);
-            } else {
-                arr.push(elem);
-            }
-        }
         // add(arr, len, "sony");
         add(arr, len, "samsung");
         add(arr, len, "google");
