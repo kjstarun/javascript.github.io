@@ -1,0 +1,168 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>REVERSE SPIRAL MATRIX</h1>
+    <script>
+        // function matrix(n){
+        //     const final = [];
+        //     for(let i = 0;i < n;i++){
+        //         final.push([]);
+        //     }
+        //     // console.log(final);
+
+        //     let c = 1;
+        //     let sc = 0;
+        //     let sr = 0;
+        //     let ec = n - 1;
+        //     let er = n - 1
+
+        //     while (sc <= ec && sr <= er) {
+        //         for (let i = sc;i <= ec;i++) {
+        //             final[sr][i] = c;
+        //             c++;
+        //         }
+        //         sr++;
+        //         for (let i = sr;i <= er;i++) {
+        //             final[i][ec] = c;
+        //             c++;
+        //         }
+        //         ec--;
+        //         for (let i = ec;i >= sc;i--) {
+        //             final[er][i] = c;
+        //             c++;
+        //         }
+        //         er--;
+        //         for (let i = er;i >= sr;i--) {
+        //             final[i][sc] = c;
+        //             c++;
+        //         }
+        //         sc++;
+        //     }
+        //     return final;
+        // }
+
+        function matrix(n) {
+            const final = [];
+            for (let i = 0; i < n; i++) {
+                final.push([]);
+            }
+
+            //   console.log("@checking final array");
+
+
+
+
+            let c = 1;
+            let center = n / 2;
+            let cr = Math.floor(center);
+
+            let sc = cr;
+            let sr = cr;
+            let ec = n - 1;
+            let er = n - 1;
+
+            final[cr][cr] = c;
+            c = c + 1;
+
+            // let f = 1;
+
+            while (sc >= 0 && sr >= 0 && c < 10) {
+                alert("in");
+                for (let i = sc - 1; i <= ec; i--) {
+                    final[sr][i] = c;
+                    c++;
+                }
+                sr++;
+                for (let i = sr; i <= er; i++) {
+                    final[i][sc] = c;
+                    c++;
+                }
+                ec--;
+                for (let i = sc; i <= ec; i++) {
+                    final[sr][i] = c;
+                    c++;
+                }
+                er--;
+                for (let i = er; i <= sr; i--) {
+                    final[i][sc] = c;
+                    c++;
+                }
+                sc++;
+            }
+
+            return final;
+
+        }
+
+
+
+        console.log(matrix(3));
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function setValue(value) {
+            const newVal = `${value}`.length === 1 ? `0${value}` : `${value}`;
+            return newVal;
+        }
+        function printReverseSpiralMatrix(n) {
+            const arr = new Array(n).fill(0).map(() => new Array(n).fill(0));
+            let init = (n - 1) / 2;
+            let r = init, c = init;
+            let value = n * n;
+            arr[r][c] = setValue(value);
+            function traverseMatrix(iterations, mode) {
+                for (let i = 0; i < iterations; i++) {
+                    switch (mode) {
+                        case "left": c--; break;
+                        case "bottom": r++; break;
+                        case "right": c++; break;
+                        default: r--;
+                    }
+                    value = value - 1;
+                    arr[r][c] = setValue(value);
+                }
+            }
+            let index = 1;
+            while (1) {
+                traverseMatrix(index, "left");
+                traverseMatrix(index, "bottom");
+                index++;
+                if (index === n - 1) {
+                    traverseMatrix(index, "right");
+                    traverseMatrix(index, "top");
+                    traverseMatrix(index, "left");
+                    break;
+                }
+                traverseMatrix(index, "right");
+                traverseMatrix(index, "top");
+                index++;
+            }
+            console.log("@AJ", arr);
+        }
+        printReverseSpiralMatrix(5)
+    </script>
+</body>
+
+</html>

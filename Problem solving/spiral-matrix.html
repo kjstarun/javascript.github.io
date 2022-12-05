@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SPIRAL MATRIX</h1>
+    <script>
+        function matrix(n){
+            const final = [];
+            for(let i = 0;i < n;i++){
+                final.push([]);
+            }
+            // console.log(final);
+
+            let c = 1;
+            let sc = 0;
+            let sr = 0;
+            let ec = n - 1;
+            let er = n - 1;
+
+            var sum = 0;
+
+            while (sc <= ec && sr <= er) {
+                for (let i = sc;i <= ec;i++) {
+                    final[sr][i] = c;
+                    c++;
+                    sum = sum + 1;
+                }
+                sr++;
+                for (let i = sr;i <= er;i++) {
+                    final[i][ec] = c;
+                    c++;
+                    sum = sum + 1;   
+                }
+                ec--;
+                for (let i = ec;i >= sc;i--) {
+                    final[er][i] = c;
+                    c++;
+                    sum = sum + 1;
+                }
+                er--;
+                for (let i = er;i >= sr;i--) {
+                    final[i][sc] = c;
+                    c++;
+                    sum = sum + 1;
+                }
+                sc++;
+            }
+            console.log("TS sum,", sum);
+            // n + 1, n + 1, n + 1
+            // 5n + 4;
+            return final;
+        }
+         console.log(matrix(3));
+    </script>
+</body>
+
+</html>

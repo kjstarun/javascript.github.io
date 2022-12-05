@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats</title>
+    <style>
+        body {
+            /* background-color:rgb(63, 32, 32); */
+            margin: 0;
+
+        }
+
+        /* seat set up */
+        input[type=checkbox] {
+            border: none;
+        }
+
+        .seat_row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* gap:5px; */
+            width: 100%;
+            height: auto;
+            background-color: lightblue;
+        }
+
+        .seat_div {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        input[type=checkbox] {
+            visibility: hidden;
+        }
+
+        .seat {
+            width: 25px;
+            height: 25px;
+            background-color: floralwhite;
+            /* border:1px solid white; */
+            margin: 5px;
+            border-radius: 5px;
+            font-size: small;
+            color: darkslategray;
+
+
+        }
+
+        .empty {
+            visibility: hidden;
+
+        }
+
+        .seat:hover {
+            background-color: rgb(14, 231, 158);
+        }
+
+        .seat_solo {
+            display: block;
+            /* flex-wrap: wrap; */
+            /* margin:0; */
+        }
+
+        .seat_solo input:checked~.seat {
+            background-color: rgb(218, 94, 32);
+            color: aliceblue;
+            font-size: x-small;
+            text-align: center;
+
+        }
+
+        /* pay and seat details display */
+
+        .box_div {
+            width: 100%;
+            height: 50px;
+            background-color: lavender;
+            display: flex;
+            justify-content: center;
+            gap: 0 50px;
+            padding: 10px;
+
+        }
+
+        .seat_box {
+            width: auto;
+            height: 25px;
+            background-color: cornflowerblue;
+            color: cornsilk;
+            border-radius: 5px;
+            box-shadow: 0 10px 20px 0;
+
+
+        }
+
+        .payment_box {
+            width: auto;
+            height: 25px;
+            background-color: whitesmoke;
+            color: gray;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            box-shadow: 0 10px 20px 0;
+        }
+
+        .payment_box:hover {
+            color: black
+        }
+    </style>
+</head>
+
+<body>
+    <div id=seats></div>
+</body>
+
+</html>
+<script>
+
+    // const seat_data = [
+    //     a = ["a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10", "a11", "a12", "a13", "a14", "a15", "a16", "a17", "a18", "a19", "a20"],
+    //     b = ["b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10", "b11", "b12", "b13", "b14", "b15"],
+    //     c = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11", "c12", "c13", "c14", "c15"],
+    //     d = ["d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "d10", "d11", "d12", "d13", "d14", "d15"],
+    //     e = ["e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "e10", "e11", "e12", "e13", "e14", "e15"],
+    //     f = ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12", "f13", "f14", "f15"],
+    //     g = ["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10", "g11", "g12", "g13", "g14", "g15"],
+    //     i = ["h1", "h2", "h3", "h4", "h5", "h6", "h7", "h8", "h9", "h10", "h11", "h12", "h13", "h14", "h15"],
+    //     j = ["i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8", "i9", "i10", "i11", "i12", "i13", "i14", "i15"],
+    //     k = ["j1", "j2", "j3", "j4", "j5", "j6", "j7", "j8", "j9", "j10", "j11", "j12", "j13", "j14", "j15"],
+    //     // l = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+    // ];
+
+    const seat_data = [
+        {
+            order: "A",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+        {
+            order: "B",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 200
+        },
+        {
+            order: "C",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+        {
+            order: "D",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+        {
+            order: "E",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+        {
+            order: "F",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+        {
+            order: "G",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+        {
+            order: "H",
+            seats: [1, 2, 3, 4, 5, 6],
+            price: 100
+        },
+
+
+    ];
+
+
+
+
+    // main container
+    const ext_container = document.getElementById("seats");
+
+    // Seat arrangement container
+    const seat_container = document.createElement("div");
+    seat_container.className = "seat_div";
+    ext_container.appendChild(seat_container);
+
+    for (let i of seat_data) {
+
+        // each row is created for each array of container
+        const seat_row = document.createElement("div");
+        seat_row.className = "seat_row";
+        seat_container.appendChild(seat_row);
+
+        for (let j in i.seats) {
+
+            // label is created for appending the check box with the seat style
+            const seat_solo = document.createElement("label");
+            seat_solo.className = "seat_solo";
+            seat_row.appendChild(seat_solo);
+
+            // check box is created
+            const seat = document.createElement("input");
+            seat.type = "checkBox";
+
+            seat.onclick = selected;
+
+
+
+            // seat is designed and appended to the checkbox
+            const seat_set = document.createElement("div");
+            // if (j == (parseInt(seat_data[i].length/2.0))) {
+            //     seat_set.className = "empty";
+            // }
+            // else {
+            //     seat_set.className = "seat";
+            // }
+
+            seat_set.className = "seat";
+            var ord = i.order + (i.seats[j].toString());
+            seat_set.innerHTML = ord;
+            seat.appendChild(seat_set);
+            seat_solo.appendChild(seat);
+            seat_solo.appendChild(seat_set);
+
+
+            // function created to identify the seat on clicking
+            var arr = []
+            var t_price = 0;
+
+            function selected() {
+                var str = ""
+                var ord = i.order + (i.seats[j].toString());
+                str += ord;
+                seat_set.innerText = str;
+
+                if (seat.checked == true) {
+                    arr.push(str);
+                    seat_box.innerHTML = arr;
+                    t_price += i.price;
+                    console.log(t_price);
+                    payment.innerHTML = `Pay: ${t_price}`;
+                }
+
+                else {
+
+                    removeElem(str);
+                    seat_box.innerHTML = arr;
+                    t_price -= i.price;
+                    console.log(t_price);
+                    payment.innerHTML = `Pay: ${t_price}`;
+                }
+                function removeElem(elem) {
+
+                    for (let k in arr) {
+                        if (arr[k] === str) {
+                            var splicedElem = arr.splice(k, 1);
+                            console.log(splicedElem);
+                        }l̥ō
+                    }
+                }
+            }
+        }
+    }
+
+    // payment and seat details div
+
+    const box_div = document.createElement("div");
+    box_div.className = "box_div";
+    ext_container.appendChild(box_div);
+
+    const seat_box = document.createElement("div");
+    seat_box.className = "seat_box";
+    box_div.appendChild(seat_box);
+
+    const payment = document.createElement("button");
+    payment.className = "payment_box";
+    box_div.appendChild(payment);
+
+
+
+
+</script>
