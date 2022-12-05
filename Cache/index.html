@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="counter_val">0</p>
+    <button onclick="setCounterVal()">Increment by 1</button>
+    <button onclick="updateCounter()">Get Counter Value</button>
+</body>
+
+</html>
+
+<!-- <script src="./assets/cache.js"></script> -->
+<script>
+    function updateCounter() {
+        const result = getCounter();
+        console.log({result});
+        document.getElementById("counter_val").textContent = result;
+    }
+    function setCounterVal() {
+        setCounter(1);
+        updateCounter();
+    }
+    (() => {
+        document.getElementById("counter_val").textContent = getCounter();
+    })();
+</script>
+<script>
+    // Cache
+    let counter = Number(localStorage.getItem("counter")) || 0;
+    function getCounter() {
+        return counter;
+    }
+    function setCounter(num) {
+        counter += num;
+        localStorage.setItem("counter", counter);
+        return;
+    }
+</script>

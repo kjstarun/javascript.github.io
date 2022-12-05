@@ -10,16 +10,15 @@
 
 <body>
     <script>
-        const str = "Coimbatore coimb";
+        const str = "cCaaAAbbbBBB";
         // const str = [1,2,3];
         // Way 1
         function occuranceV1(str) {
             if (typeof (str) !== "string") {
                 return "Invalid input";
             }
-            let new_str = str.toLowerCase();
             let obj = {};
-            for (let i of new_str) {
+            for (let i of str) {
                 if (i === " ") {
                     continue;
                 }
@@ -39,9 +38,8 @@
             if (typeof (str) !== "string") {
                 "Invalid input";
             }
-            let new_str = str.toLowerCase();
             let obj = {};
-            for (let i of new_str) {
+            for (let i of str) {
                 if (i !== " ") {
                     obj.hasOwnProperty(i) ? obj[i]++ : obj[i] = 1;
                 }
@@ -52,8 +50,7 @@
 
         // Way 3
         function occuranceV3(str) {
-            let new_str = str.toLowerCase();
-            let arr = new_str.split("");;
+            let arr = str.split("");;
             // console.log(arr);
             let result = arr.reduce((acc, curr) => {
                 if (curr !== " ") {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>IIFE LEXICAL SCOPE</h1>
+    <script>
+        // using var -- 6 6 6 6 6 6
+        // for (var a = 0; a < 6; a++) {
+        //     setTimeout(() => {
+        //         console.log("@TS using var same variable ,",a);
+        //     },3000);
+        // }
+
+        // using let -- 0 1 2 3 4 5
+        // for (let b = 0; b < 6; b++) {
+        //     setTimeout(() => {
+        //         console.log("@TS using let ,",b);
+        //     },3000);
+        // }
+
+        // using var -- 0 1 2 3 4 5
+        for (var c = 0; c < 6; c++) {
+            (function(c){
+                setTimeout(() => {
+                console.log("@TS using var different variable ,",c);
+            }, 1000);  
+            })(c);
+        }
+    </script>
+</body>
+
+</html>

@@ -20,18 +20,18 @@
             name: "Hareesh",
             age: 21,
             state: "TN",
-            details: {a: 1,b: 1},
+            details: {a: 1, b: 1},
         }
 
         const name = obj.name;
 
-        const { age, country = "NA" } = obj;
-        const { name: name_1 } = obj2;
-        const {details:{a,b}} = obj2;
+        const {age, country = "NA"} = obj;
+        const {name: name_1} = obj2;
+        const {details: {a, b}} = obj2;
         // const {a,b} = details;
 
-        console.log("@TS,", { name, age, country, name_1 });
-        console.log("@TS,", a,b);
+        console.log("@TS,", {name, age, country, name_1});
+        console.log("@TS,", a, b);
     </script>
 </body>
 

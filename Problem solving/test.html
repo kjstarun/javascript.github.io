@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <input type="text" onkeyup="onSearch(event)" /> -->
+    <input type="text" id="my-input" />
+</body>
+
+</html>
+
+<script>
+    function onSearch(e) {
+        console.log(e.target.value);
+    }
+
+    let input = document.getElementById('my-input');
+    let timeout = null;
+    input.addEventListener('keyup', function (e) {
+        clearTimeout(timeout);
+        timeout = setTimeout(function () {
+            console.log('Input Value:', input.value);
+        }, 1000);
+    });
+
+</script>
+
+<script>
+    const data = (data) => {
+        if (data === null || typeof (data) === "undefined") {
+            data = "NA";
+        }
+        return data;
+    }
+    console.log(data(undefined));
+
+    const dataV2 = (data) => {
+        return data ?? "NA";
+    }
+    console.log(dataV2(null));
+
+    const alter = (data) => {
+        return data || 2;
+    }
+    console.log(alter(0));
+
+    // const alterV2 = (data) => {
+    //     return data &&= 2;
+    // }
+    // console.log(alterV2(0))
+</script>

@@ -18,9 +18,9 @@
     const sum = numbers.reduce((accumulator, currentVal) => {
         accumulator += currentVal;
         return accumulator;
-    }, 0);
+    },0);
 
-    console.log("@TS sum, ",sum);
+    console.log("@TS sum m, ",sum);
 
     const resultData = numbers.reduce((acc, curr) => {
         if (curr % 2 === 0) {
@@ -49,7 +49,7 @@
             acc[curr] = currentCount + 1;
         }
         return acc;
-    }, {});
+    }, []);
 
     console.log("@TS vowels, ",vowelsCount);
 

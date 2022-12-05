@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * Get an array.
+         * Get the target .
+         * Iterate a for loop on the length of array with variable i.
+         * Iterate another for loop on the previous iterated value i with variable j (j = i).
+         * Iterate another for loop on the previous iterated value j with variable k (k = j).
+         * Now sum all the three iterated values and check whether the sum equals to the target.
+         * If equals, return all the iterated values as a object and break.
+         * If not go for next iteration.
+        */
+
+        function triplet(arr, target) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = i + 1; j < arr.length; j++) {
+                    for (let k = j + 1; k < arr.length; k++) {
+                        if (arr[i] + arr[j] + arr[k] === target) {
+                            return [arr[i], arr[j], arr[k]];
+                        }
+                    }
+                }
+            }
+            return "No triplets found";
+        }
+        function sum(arr, target) {
+            if (!Array.isArray(arr) || arr.length < 3) {
+                return "Enter valid input";
+            }
+            return triplet(arr, target);
+        }
+        console.log(sum([12, 3, 4, 1, 6, 9], 11));
+
+    </script>
+</body>
+
+</html>

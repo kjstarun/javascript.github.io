@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * create a normal function 
+         * pass the arguments like (1,2,3,4,5,.....,n)
+         * in the parameter use a rest operator with a variable name (arr)
+         * This will simply capture all your arguements and convert it to an array and store in the variable (arr)
+         * Check whether the array is empty, if empty return a error message
+         * Then check whether the array is not having a number, if so return error message
+         * Else go for below steps.
+         * create a sum variable and set to 0
+         * run a for loop on the arr
+         * add every iterated value and update it with the sum
+         * return the sum
+        */
+
+        const add = (...arr) => {
+            if (arr.length === 0) {
+                return "Enter a valid input";
+            }
+            let sum = 0;
+            for (let i of arr) {
+                if (typeof (i) === "number") {
+                    sum += i;
+                } else {
+                    return "Enter a valid input";
+                }
+            }
+            return sum;
+        }
+        
+        // const add = ()=>{
+        //     for(let i of ar)
+        // }
+        
+        console.log(add(1, 2, 3, 3));
+    </script>
+</body>
+
+</html>

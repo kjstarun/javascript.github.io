@@ -12,26 +12,28 @@
 
 </html>
 <script>
-    const myObj = {
-        foo: "bar",
-        getDetails: function () {
-            let self = this;
+    // const myObj = {
+    //     foo: "bar",
+    //     getDetails: function () {
+    //         let self = this;
 
-            console.log("Outer", this.foo, self.foo);
+    //         console.log("Outer", this.foo, self.foo);
 
-            (function () {
-                console.log("Inner", this.foo, self.foo);
-            })();
-        },
-    };
+    //         (function () {
+    //             console.log("Inner", this.foo, self.foo);
+    //         })();
+    //     },
+    // };
 
-    myObj.getDetails();
+    // myObj.getDetails();
 
     const jamesBond = {
         firstName: "Daniel",
         lastName: "Craig",
         getFullName: () => {
-            return `${this.firstName} ${this.lastName}`;
+            // console.log(jamesBond);
+            // let;
+            console.log(this.firstName, this.lastName);
         },
     };
     jamesBond.getFullName();
