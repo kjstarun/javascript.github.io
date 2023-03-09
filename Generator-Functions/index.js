@@ -13,6 +13,8 @@ function* generator() {
 const Obj = generator();
 // const Obj2 = generator();
 
+console.log("gen",generator())
+
 console.log(Obj.next());
 console.log(Obj.next());
 console.log(Obj.next());
